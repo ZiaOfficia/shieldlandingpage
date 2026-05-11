@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shield Defence Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', sans-serif; color: #222; overflow-x: hidden; }
+
+  /* TOP BAR */
+  .top-bar {
+    background: #1a3a1a;
+    color: #ccc;
+    font-size: 12px;
+    padding: 6px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-bar .left { display: flex; gap: 24px; align-items: center; }
+  .top-bar .left span { display: flex; align-items: center; gap: 6px; }
+  .top-bar .left i { color: #f5a623; font-size: 11px; }
+  .top-bar .right { display: flex; gap: 12px; }
+  .top-bar .right a { color: #ccc; width: 24px; height: 24px; border-radius: 50%; border: 1px solid #555; display: flex; align-items: center; justify-content: center; font-size: 11px; text-decoration: none; transition: background 0.2s; }
+  .top-bar .right a:hover { background: #f5a623; border-color: #f5a623; color: #fff; }
+
+  /* NAVBAR */
+  nav {
+    background: #fff;
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-icon {
+    width: 48px; height: 48px;
+    background: #1a5c1a;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .logo-icon::before {
+    content: '';
+    position: absolute;
+    width: 36px; height: 36px;
+    border: 2px solid #f5a623;
+    border-radius: 50%;
+  }
+  .logo-icon i { color: #f5a623; font-size: 18px; }
+  .logo-text { line-height: 1.1; }
+  .logo-text .brand { font-size: 20px; font-weight: 800; color: #1a5c1a; letter-spacing: 1px; }
+  .logo-text .sub { font-size: 10px; color: #555; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+  .nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 4px;
+    display: flex; align-items: center; gap: 4px;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links li a.active { color: #f5a623; }
+  .nav-links li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 14px; right: 14px;
+    height: 2px;
+    background: #f5a623;
+    border-radius: 2px;
+  }
+  .nav-links li a:hover { color: #f5a623; }
+  .nav-links li a i { font-size: 10px; }
+  .btn-enroll {
+    background: #f5a623;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+  .btn-enroll:hover { background: #d4891a; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d1f0d 0%, #1a3a1a 40%, #1e3d2e 70%, #152a35 100%);
+    color: #fff;
+    padding: 60px 40px 0;
+    display: flex;
+    align-items: center;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(245,166,35,0.35) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { max-width: 480px; z-index: 2; position: relative; }
+  .hero-tagline { color: #f5a623; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .hero h1 { font-size: 46px; font-weight: 800; line-height: 1.1; margin-bottom: 4px; }
+  .hero h1 span { color: #f5a623; display: block; }
+  .hero-sub { font-size: 13.5px; color: #bbb; line-height: 1.7; margin: 14px 0 28px; }
+  .hero-sub strong { display: block; color: #ccc; }
+  .hero-btns { display: flex; gap: 14px; }
+  .btn-explore {
+    background: #2d7a2d;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-explore:hover { background: #236a23; }
+  .btn-explore i { font-size: 12px; }
+  .btn-brochure {
+    background: transparent;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+    border: 1.5px solid #fff;
+    display: flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-brochure:hover { background: rgba(255,255,255,0.1); }
+  .hero-image {
+    position: absolute;
+    right: 60px;
+    bottom: 0;
+    width: 420px;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  /* Officer figures - stylized SVG placeholders representing the 3 officers */
+  .officers-wrapper {
+    position: relative;
+    width: 420px;
+    height: 360px;
+  }
+  .officer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .officer-body {
+    width: 90px;
+    height: 240px;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+  }
+  .officer-head {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #c8a87a;
+    position: absolute;
+    top: -27px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .officer-cap {
+    width: 64px;
+    height: 20px;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    top: -46px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* Left officer - army green */
+  .officer-left { left: 10px; }
+  .officer-left .officer-body { background: linear-gradient(180deg, #4a5e2a 0%, #3a4e20 100%); }
+  .officer-left .officer-cap { background: #4a5e2a; }
+  /* Center officer - navy white */
+  .officer-center { left: 50%; transform: translateX(-50%); z-index: 3; }
+  .officer-center .officer-body { background: linear-gradient(180deg, #f0f0f0 0%, #ddd 100%); width: 100px; height: 260px; }
+  .officer-center .officer-cap { background: #1a3a6a; width: 72px; }
+  /* Right officer - air force blue */
+  .officer-right { right: 10px; }
+  .officer-right .officer-body { background: linear-gradient(180deg, #1a4a7a 0%, #123460 100%); }
+  .officer-right .officer-cap { background: #1a3a6a; }
+  /* Golden circle behind officers */
+  .golden-circle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, #f5a623 0%, #e8940f 50%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.8;
+  }
+
+  /* HERO FEATURES BAR */
+  .hero-features {
+    background: #fff;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-top: 3px solid #f5f5f5;
+  }
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    border-right: 1px solid #e8e8e8;
+    flex: 1;
+  }
+  .feature-item:last-child { border-right: none; }
+  .feature-item i { font-size: 22px; color: #1a5c1a; }
+  .feature-text .title { font-size: 13px; font-weight: 700; color: #222; }
+  .feature-text .sub { font-size: 11px; color: #777; }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: #1a3a1a;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0;
+  }
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 28px;
+    border-right: 1px solid #2d5a2d;
+    color: #fff;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-item i { font-size: 20px; color: #f5a623; }
+  .stat-num { font-size: 20px; font-weight: 800; color: #fff; line-height: 1; }
+  .stat-label { font-size: 10px; color: #aaa; line-height: 1.3; }
+
+  /* SECTION COMMON */
+  .section { padding: 60px 40px; }
+  .section-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .section-title { font-size: 30px; font-weight: 800; color: #1a1a1a; margin-bottom: 36px; }
+
+  /* COURSES */
+  .courses-section { background: #fff; }
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .course-card {
+    border-radius: 10px;
+    padding: 28px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    min-height: 160px;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .course-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .course-card .icon { font-size: 32px; color: #fff; margin-bottom: 10px; }
+  .course-card h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+  .course-card p { font-size: 11px; color: rgba(255,255,255,0.85); margin-bottom: 12px; }
+  .course-arrow {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-size: 11px;
+  }
+  .course-nda { background: #1a5c1a; }
+  .course-cds { background: #1a3a6a; }
+  .course-afcat { background: #6a1a7a; }
+  .course-navy { background: #1a6a6a; }
+  .course-ssb { background: #7a5a1a; }
+  .view-all-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    border: 1.5px solid #333;
+    color: #333;
+    padding: 10px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .view-all-btn:hover { background: #333; color: #fff; }
+
+  /* WHY CHOOSE US */
+  .why-section { background: #f9f9f9; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .why-image img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    height: 320px;
+    background: #ddd;
+  }
+  .why-image-placeholder {
+    width: 100%;
+    height: 320px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1a3a1a, #2d5a2d);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 14px;
+    overflow: hidden;
+    position: relative;
+  }
+  .why-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320"><rect fill="%231a3a1a" width="400" height="320"/><text x="200" y="160" text-anchor="middle" fill="%23fff" font-size="14" font-family="sans-serif">Classroom Training</text></svg>') center/cover;
+  }
+  .why-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .why-title { font-size: 28px; font-weight: 800; color: #1a1a1a; line-height: 1.2; margin-bottom: 24px; }
+  .why-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .why-feature { display: flex; gap: 10px; align-items: flex-start; }
+  .why-feature-icon { color: #1a5c1a; font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .why-feature h4 { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+  .why-feature p { font-size: 11.5px; color: #666; line-height: 1.5; }
+
+  /* ACHIEVEMENTS */
+  .achievements-section {
+    background: #1a3a1a;
+    padding: 50px 40px;
+    color: #fff;
+  }
+  .ach-inner { display: flex; gap: 60px; align-items: center; }
+  .ach-left { flex: 0 0 360px; }
+  .ach-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .ach-title { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 28px; }
+  .ach-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .ach-stat { text-align: center; padding: 10px 12px; border-right: 1px solid #2d5a2d; }
+  .ach-stat:last-child { border-right: none; }
+  .ach-stat i { font-size: 22px; color: #f5a623; margin-bottom: 6px; display: block; }
+  .ach-stat .num { font-size: 22px; font-weight: 800; color: #fff; }
+  .ach-stat .lbl { font-size: 10px; color: #aaa; line-height: 1.4; }
+  .ach-right { flex: 1; }
+  .toppers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .topper-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .topper-photo {
+    width: 80px; height: 80px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #c8a87a, #a88060);
+    margin: 0 auto 10px;
+    overflow: hidden;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .topper-photo i { font-size: 48px; color: #7a5a3a; opacity: 0.7; }
+  .topper-rank { font-size: 22px; font-weight: 800; color: #f5a623; }
+  .topper-exam { font-size: 10px; color: #aaa; }
+  .dots { display: flex; gap: 6px; justify-content: center; margin-top: 20px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); }
+  .dot.active { background: #f5a623; width: 20px; border-radius: 4px; }
+
+  /* LIFE AT SHIELD */
+  .life-section { background: #fff; padding: 60px 40px; text-align: center; }
+  .life-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .life-label span { color: #f5a623; font-weight: 800; }
+  .life-title { font-size: 28px; font-weight: 800; color: #1a1a1a; margin-bottom: 32px; }
+  .life-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 28px; }
+  .life-card { text-align: center; }
+  .life-photo {
+    width: 100%;
+    height: 130px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .life-photo-inner {
+    width: 100%;
+    height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; color: rgba(255,255,255,0.7);
+  }
+  .lp1 { background: linear-gradient(135deg, #1a3a1a, #2d6a2d); }
+  .lp2 { background: linear-gradient(135deg, #1a1a4a, #2d2d7a); }
+  .lp3 { background: linear-gradient(135deg, #3a1a3a, #6a2d6a); }
+  .lp4 { background: linear-gradient(135deg, #1a3a1a, #3a6a3a); }
+  .lp5 { background: linear-gradient(135deg, #2a1a1a, #5a3a3a); }
+  .life-card h4 { font-size: 13px; font-weight: 700; color: #222; }
+  .life-card p { font-size: 11px; color: #888; }
+  .btn-gallery {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f5a623;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-gallery:hover { background: #d4891a; }
+
+  /* TESTIMONIAL + CTA */
+  .testimonial-cta { display: grid; grid-template-columns: 1fr 1fr; }
+  .testimonial-side { padding: 50px 40px; background: #fff; }
+  .test-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .test-title { font-size: 26px; font-weight: 800; color: #1a1a1a; margin-bottom: 24px; }
+  .test-quote {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 24px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .test-quote::before {
+    content: '\201C';
+    font-size: 60px;
+    color: #f5a623;
+    line-height: 0;
+    position: absolute;
+    top: 30px; left: 20px;
+    opacity: 0.4;
+    font-family: Georgia, serif;
+  }
+  .test-quote p { font-size: 13px; color: #444; line-height: 1.7; padding-left: 10px; font-style: italic; }
+  .test-author { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .test-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #c8a87a, #a87a50); }
+  .test-author-name { font-weight: 700; font-size: 13px; color: #1a1a1a; }
+  .test-author-role { font-size: 11px; color: #888; }
+  .test-dots { display: flex; gap: 6px; margin-top: 16px; }
+  .test-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
+  .test-dot.active { background: #f5a623; width: 20px; border-radius: 4px; }
+  .cta-side {
+    background: linear-gradient(135deg, #1a3a1a 0%, #152a35 100%);
+    padding: 50px 40px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-side::before {
+    content: '';
+    position: absolute;
+    right: -20px; top: -20px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-soldier {
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    width: 140px;
+    height: 200px;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .soldier-silhouette {
+    width: 60px; height: 180px;
+    background: rgba(0,0,0,0.5);
+    clip-path: polygon(30% 0%, 70% 0%, 80% 15%, 75% 30%, 85% 100%, 15% 100%, 25% 30%, 20% 15%);
+    filter: drop-shadow(0 0 20px rgba(245,166,35,0.3));
+  }
+  .cta-title { font-size: 30px; font-weight: 800; line-height: 1.2; margin-bottom: 14px; z-index: 2; position: relative; }
+  .cta-title span { color: #f5a623; }
+  .cta-text { font-size: 13px; color: #bbb; line-height: 1.7; margin-bottom: 24px; max-width: 280px; z-index: 2; position: relative; }
+  .btn-enroll-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f5a623;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    width: fit-content;
+    z-index: 2;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .btn-enroll-cta:hover { background: #d4891a; }
+  .cta-bg-img {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 260px;
+    height: 100%;
+    background: url('') right bottom/contain no-repeat;
+    opacity: 0.3;
+  }
+
+  /* ASSOCIATIONS */
+  .associations { background: #fff; padding: 40px 40px; }
+  .assoc-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .assoc-title { font-size: 24px; font-weight: 800; color: #1a1a1a; margin-bottom: 24px; }
+  .assoc-logos { display: flex; align-items: center; gap: 32px; }
+  .assoc-logo {
+    width: 70px; height: 70px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 12px; color: #333;
+    flex-shrink: 0;
+  }
+  .assoc-logo.aima { background: #e8f0e8; color: #1a5c1a; font-size: 16px; letter-spacing: 1px; }
+
+  /* FOOTER */
+  footer {
+    background: #111;
+    color: #ccc;
+    padding: 50px 40px 24px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 40px; }
+  .footer-brand .logo-text .brand { color: #f5a623; }
+  .footer-brand p { font-size: 12px; color: #888; line-height: 1.7; margin: 14px 0; }
+  .footer-social { display: flex; gap: 10px; }
+  .footer-social a {
+    width: 30px; height: 30px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    display: flex; align-items: center; justify-content: center;
+    color: #888; font-size: 12px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .footer-social a:hover { background: #f5a623; border-color: #f5a623; color: #fff; }
+  footer h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: 0.5px; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 8px; }
+  footer ul li a { color: #888; font-size: 12px; text-decoration: none; transition: color 0.2s; }
+  footer ul li a:hover { color: #f5a623; }
+  .footer-contact ul li { display: flex; gap: 8px; align-items: flex-start; color: #888; font-size: 12px; margin-bottom: 10px; }
+  .footer-contact ul li i { color: #f5a623; font-size: 12px; margin-top: 2px; flex-shrink: 0; }
+  .footer-enquire input, .footer-enquire select {
+    width: 100%;
+    padding: 9px 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #ccc;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+  }
+  .footer-enquire input::placeholder { color: #666; }
+  .footer-enquire input:focus, .footer-enquire select:focus { border-color: #f5a623; }
+  .footer-enquire select option { background: #1a1a1a; }
+  .btn-submit {
+    width: 100%;
+    padding: 10px;
+    background: #f5a623;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-submit:hover { background: #d4891a; }
+  .footer-bottom {
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+  }
+
+  /* Decorative dots pattern */
+  .dots-decor {
+    position: absolute;
+    width: 80px; height: 80px;
+    background-image: radial-gradient(circle, rgba(245,166,35,0.4) 1px, transparent 1px);
+    background-size: 10px 10px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="left">
+    <span><i class="fas fa-map-marker-alt"></i> Lucknow, Uttar Pradesh</span>
+    <span><i class="fas fa-phone"></i> +91 9454551884, 9519411948</span>
+    <span><i class="fas fa-envelope"></i> info@shielddefenceacademy.com</span>
+  </div>
+  <div class="right">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+    <div class="logo-text">
+      <div class="brand">SHIELD</div>
+      <div class="sub">DEFENCE ACADEMY</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">About Us <i class="fas fa-chevron-down"></i></a></li>
+    <li><a href="#">Courses <i class="fas fa-chevron-down"></i></a></li>
+    <li><a href="#">Results <i class="fas fa-chevron-down"></i></a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <a href="#" class="btn-enroll">ENROLL NOW</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tagline">DREAM. PREPARE. DEFEND.</div>
+    <h1>Shape Your Future<span>Serve The Nation</span></h1>
+    <div class="hero-sub">
+      Expert guidance. Proven strategies. Personal attention.<br>
+      Your journey to NDA, CDS, AFCAT, Navy & more starts here.
+    </div>
+    <div class="hero-btns">
+      <a href="#" class="btn-explore"><i class="fas fa-arrow-right"></i> EXPLORE COURSES</a>
+      <a href="#" class="btn-brochure"><i class="fas fa-download"></i> DOWNLOAD BROCHURE</a>
+    </div>
+  </div>
+
+  <!-- Officers Visual -->
+  <div class="hero-image">
+    <div class="officers-wrapper">
+      <div class="golden-circle"></div>
+      <!-- Left officer - Army -->
+      <div class="officer officer-left">
+        <div class="officer-body" style="background:linear-gradient(180deg,#4a5e2a,#3a4e20);width:85px;height:240px;border-radius:8px 8px 0 0;position:relative;">
+          <div class="officer-cap" style="background:#4a5e2a;position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:60px;height:18px;border-radius:50% 50% 0 0;"></div>
+          <div class="officer-head" style="background:#c8a87a;width:50px;height:50px;border-radius:50%;position:absolute;top:-43px;left:50%;transform:translateX(-50%);"></div>
+          <!-- Uniform details -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:rgba(0,0,0,0.2);border-radius:0 0 0 0;"></div>
+          <div style="position:absolute;top:30px;left:50%;transform:translateX(-50%);width:40px;height:3px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
+        </div>
+      </div>
+      <!-- Center officer - Navy White -->
+      <div class="officer officer-center">
+        <div style="background:linear-gradient(180deg,#f0f0f0,#e0e0e0);width:100px;height:260px;border-radius:8px 8px 0 0;position:relative;">
+          <div style="background:#1a3a6a;position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:70px;height:20px;border-radius:50% 50% 0 0;"></div>
+          <div style="background:#c8a87a;width:54px;height:54px;border-radius:50%;position:absolute;top:-48px;left:50%;transform:translateX(-50%);"></div>
+          <div style="position:absolute;top:20px;left:8px;right:8px;height:3px;background:#1a3a6a;border-radius:2px;"></div>
+          <div style="position:absolute;top:30px;left:8px;right:8px;height:2px;background:#c0a030;border-radius:2px;"></div>
+          <div style="position:absolute;top:50px;left:50%;transform:translateX(-50%);width:1px;height:80px;background:#aaa;"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:rgba(0,0,0,0.05);"></div>
+        </div>
+      </div>
+      <!-- Right officer - Air Force Blue -->
+      <div class="officer officer-right">
+        <div style="background:linear-gradient(180deg,#1a4a7a,#123460);width:85px;height:240px;border-radius:8px 8px 0 0;position:relative;">
+          <div style="background:#1a3a6a;position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:60px;height:18px;border-radius:50% 50% 0 0;"></div>
+          <div style="background:#c8a87a;width:50px;height:50px;border-radius:50%;position:absolute;top:-43px;left:50%;transform:translateX(-50%);"></div>
+          <div style="position:absolute;top:30px;left:50%;transform:translateX(-50%);width:40px;height:3px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:rgba(0,0,0,0.2);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO FEATURES + STATS -->
+<div class="hero-features">
+  <div class="feature-item">
+    <i class="fas fa-chalkboard-teacher"></i>
+    <div class="feature-text"><div class="title">Expert Faculty</div><div class="sub">Experienced & Dedicated</div></div>
+  </div>
+  <div class="feature-item">
+    <i class="fas fa-trophy"></i>
+    <div class="feature-text"><div class="title">Proven Results</div><div class="sub">Consistent Selections</div></div>
+  </div>
+  <div class="feature-item">
+    <i class="fas fa-user-check"></i>
+    <div class="feature-text"><div class="title">Personalized Guidance</div><div class="sub">Individual Attention</div></div>
+  </div>
+  <div class="feature-item">
+    <i class="fas fa-brain"></i>
+    <div class="feature-text"><div class="title">Holistic Development</div><div class="sub">Beyond Academics</div></div>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-item">
+    <i class="fas fa-calendar-check"></i>
+    <div><div class="stat-num">15+</div><div class="stat-label">Years of<br>Excellence</div></div>
+  </div>
+  <div class="stat-item">
+    <i class="fas fa-users"></i>
+    <div><div class="stat-num">5000+</div><div class="stat-label">Successful<br>Selections</div></div>
+  </div>
+  <div class="stat-item">
+    <i class="fas fa-user-tie"></i>
+    <div><div class="stat-num">20+</div><div class="stat-label">Expert<br>Faculty</div></div>
+  </div>
+  <div class="stat-item">
+    <i class="fas fa-shield-alt"></i>
+    <div><div class="stat-num">100%</div><div class="stat-label">Dedication<br>to Success</div></div>
+  </div>
+</div>
+
+<!-- COURSES -->
+<section class="section courses-section">
+  <div class="section-label">OUR COURSES</div>
+  <div class="section-title">A Way to Your Success</div>
+  <div class="courses-grid">
+    <a href="#" class="course-card course-nda">
+      <div class="icon"><i class="fas fa-star"></i></div>
+      <h3>NDA</h3>
+      <p>For 12th Passed Aspirants</p>
+      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
+    </a>
+    <a href="#" class="course-card course-cds">
+      <div class="icon"><i class="fas fa-medal"></i></div>
+      <h3>CDS</h3>
+      <p>For Graduates</p>
+      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
+    </a>
+    <a href="#" class="course-card course-afcat">
+      <div class="icon"><i class="fas fa-plane"></i></div>
+      <h3>AFCAT</h3>
+      <p>Air Force Entry</p>
+      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
+    </a>
+    <a href="#" class="course-card course-navy">
+      <div class="icon"><i class="fas fa-anchor"></i></div>
+      <h3>NAVY</h3>
+      <p>SSR & AA Entries</p>
+      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
+    </a>
+    <a href="#" class="course-card course-ssb">
+      <div class="icon"><i class="fas fa-comments"></i></div>
+      <h3>SSB INTERVIEW</h3>
+      <p style="font-size:10px;">Personality Development & Interview Training</p>
+      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
+    </a>
+  </div>
+  <div style="text-align:center;">
+    <a href="#" class="view-all-btn">VIEW ALL COURSES <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section why-section">
+  <div class="why-grid">
+    <div>
+      <div class="why-image-placeholder">
+        <svg width="100%" height="100%" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#1a3a1a" width="500" height="320"/>
+          <!-- Classroom scene -->
+          <rect x="20" y="40" width="460" height="200" rx="4" fill="#162e16"/>
+          <!-- Board -->
+          <rect x="150" y="50" width="200" height="120" rx="4" fill="#0d1f0d"/>
+          <line x1="160" y1="70" x2="340" y2="70" stroke="#3a6a3a" stroke-width="2"/>
+          <line x1="160" y1="90" x2="280" y2="90" stroke="#3a6a3a" stroke-width="2"/>
+          <line x1="160" y1="110" x2="310" y2="110" stroke="#3a6a3a" stroke-width="2"/>
+          <!-- Students -->
+          <g fill="#2d5a2d">
+            <rect x="30" y="200" width="50" height="40" rx="4"/>
+            <rect x="90" y="200" width="50" height="40" rx="4"/>
+            <rect x="150" y="200" width="50" height="40" rx="4"/>
+            <rect x="210" y="200" width="50" height="40" rx="4"/>
+            <rect x="270" y="200" width="50" height="40" rx="4"/>
+            <rect x="330" y="200" width="50" height="40" rx="4"/>
+            <rect x="390" y="200" width="50" height="40" rx="4"/>
+          </g>
+          <!-- Student heads -->
+          <g fill="#c8a87a">
+            <circle cx="55" cy="194" r="10"/>
+            <circle cx="115" cy="194" r="10"/>
+            <circle cx="175" cy="194" r="10"/>
+            <circle cx="235" cy="194" r="10"/>
+            <circle cx="295" cy="194" r="10"/>
+            <circle cx="355" cy="194" r="10"/>
+            <circle cx="415" cy="194" r="10"/>
+          </g>
+          <text x="250" y="290" text-anchor="middle" fill="#aaa" font-size="13" font-family="sans-serif">Classroom Training</text>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <div class="why-label">WHY CHOOSE US</div>
+      <div class="why-title">Training That Builds<br>Officers & Leaders</div>
+      <div class="why-features">
+        <div class="why-feature">
+          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h4>Structured & Comprehensive Curriculum</h4>
+            <p>Well-planned courses covering every aspect.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h4>Mentorship & Personal Attention</h4>
+            <p>Guiding every step of your journey.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h4>Regular Assessment & Mock Tests</h4>
+            <p>Evaluate, improve and excel.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h4>Personality Development</h4>
+            <p>Building leaders with confidence.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h4>Physical Fitness Training</h4>
+            <p>Build stamina, strength & confidence.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h4>SSB Interview Training</h4>
+            <p>Expert training for every stage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements-section">
+  <div class="ach-inner">
+    <div class="ach-left">
+      <div class="ach-label">OUR ACHIEVEMENTS</div>
+      <div class="ach-title">Proud Moments, Glorious Futures</div>
+      <div class="ach-stats">
+        <div class="ach-stat">
+          <i class="fas fa-trophy"></i>
+          <div class="num">5000+</div>
+          <div class="lbl">Successful Selections</div>
+        </div>
+        <div class="ach-stat">
+          <i class="fas fa-star"></i>
+          <div class="num">15+</div>
+          <div class="lbl">Years of Excellence</div>
+        </div>
+        <div class="ach-stat">
+          <i class="fas fa-user-tie"></i>
+          <div class="num">20+</div>
+          <div class="lbl">Expert Faculty</div>
+        </div>
+        <div class="ach-stat">
+          <i class="fas fa-shield-alt"></i>
+          <div class="num">100%</div>
+          <div class="lbl">Dedication to Success</div>
+        </div>
+      </div>
+    </div>
+    <div class="ach-right">
+      <div class="toppers-grid">
+        <div class="topper-card">
+          <div class="topper-photo"><i class="fas fa-user" style="font-size:42px;color:#7a5a3a;opacity:0.7;align-self:flex-end;"></i></div>
+          <div class="topper-rank">AIR 12</div>
+          <div class="topper-exam">NDA 2023</div>
+        </div>
+        <div class="topper-card">
+          <div class="topper-photo"><i class="fas fa-user" style="font-size:42px;color:#7a5a3a;opacity:0.7;align-self:flex-end;"></i></div>
+          <div class="topper-rank">AIR 35</div>
+          <div class="topper-exam">CDS 2023</div>
+        </div>
+        <div class="topper-card">
+          <div class="topper-photo"><i class="fas fa-user" style="font-size:42px;color:#7a5a3a;opacity:0.7;align-self:flex-end;"></i></div>
+          <div class="topper-rank">AIR 06</div>
+          <div class="topper-exam">AFCAT 2023</div>
+        </div>
+        <div class="topper-card">
+          <div class="topper-photo"><i class="fas fa-user" style="font-size:42px;color:#7a5a3a;opacity:0.7;align-self:flex-end;"></i></div>
+          <div class="topper-rank">AIR 21</div>
+          <div class="topper-exam">NDA 2023</div>
+        </div>
+      </div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFE AT SHIELD -->
+<section class="life-section">
+  <div class="life-label">LIFE AT <span>SHIELD</span></div>
+  <div class="life-title">Discipline Today, Leadership Tomorrow</div>
+  <div class="life-grid">
+    <div class="life-card">
+      <div class="life-photo"><div class="life-photo-inner lp1"><i class="fas fa-chalkboard"></i></div></div>
+      <h4>Classroom Training</h4><p>Conceptual Clarity</p>
+    </div>
+    <div class="life-card">
+      <div class="life-photo"><div class="life-photo-inner lp2"><i class="fas fa-running"></i></div></div>
+      <h4>Physical Training</h4><p>Strength & Stamina</p>
+    </div>
+    <div class="life-card">
+      <div class="life-photo"><div class="life-photo-inner lp3"><i class="fas fa-comments"></i></div></div>
+      <h4>SSB Practice</h4><p>Real Interview Experience</p>
+    </div>
+    <div class="life-card">
+      <div class="life-photo"><div class="life-photo-inner lp4"><i class="fas fa-campground"></i></div></div>
+      <h4>Outdoor Activities</h4><p>Teamwork & Confidence</p>
+    </div>
+    <div class="life-card">
+      <div class="life-photo"><div class="life-photo-inner lp5"><i class="fas fa-users"></i></div></div>
+      <h4>Group Discussions</h4><p>Communication Skills</p>
+    </div>
+  </div>
+  <a href="#" class="btn-gallery">EXPLORE GALLERY <i class="fas fa-arrow-right"></i></a>
+</section>
+
+<!-- TESTIMONIAL + CTA -->
+<div class="testimonial-cta">
+  <div class="testimonial-side">
+    <div class="test-label">WHAT OUR STUDENTS SAY</div>
+    <div class="test-title">Trusted by Thousands of Aspirants</div>
+    <div class="test-quote">
+      <p>The faculty at Shield Defence Academy motivates us to push our limits and achieve our dreams.</p>
+      <div class="test-author">
+        <div class="test-avatar"></div>
+        <div>
+          <div class="test-author-name">– Ayush Singh</div>
+          <div class="test-author-role">NDA 2023</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-dots">
+      <div class="test-dot active"></div>
+      <div class="test-dot"></div>
+      <div class="test-dot"></div>
+      <div class="test-dot"></div>
+    </div>
+  </div>
+  <div class="cta-side">
+    <!-- Soldier silhouette with sunset bg -->
+    <svg style="position:absolute;bottom:0;right:0;width:260px;height:100%;opacity:0.25;" viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+      <defs><radialGradient id="sunGlow" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="#f5a623" stop-opacity="0.8"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
+      <circle cx="130" cy="180" r="100" fill="url(#sunGlow)"/>
+      <path d="M100 300 L100 150 Q115 100 130 90 Q145 100 160 150 L160 300Z" fill="#111" opacity="0.9"/>
+      <path d="M115 130 Q130 110 145 130" stroke="#222" stroke-width="3" fill="none"/>
+      <circle cx="130" cy="100" r="18" fill="#222" opacity="0.9"/>
+    </svg>
+    <div class="cta-title">Your Journey<br><span>Starts Now!</span></div>
+    <div class="cta-text">Join Shield Defence Academy and take the first step towards a prestigious career in the Armed Forces.</div>
+    <a href="#" class="btn-enroll-cta">ENROLL NOW <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ASSOCIATIONS -->
+<section class="associations">
+  <div class="assoc-label">OUR ASSOCIATIONS</div>
+  <div class="assoc-title">Partnering for Excellence</div>
+  <div class="assoc-logos">
+    <!-- Indian Army logo placeholder -->
+    <div class="assoc-logo" style="background:#f0e8d0;">
+      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="22" fill="none" stroke="#8a6a20" stroke-width="2"/>
+        <polygon points="25,8 28,20 40,20 31,28 34,40 25,32 16,40 19,28 10,20 22,20" fill="#f5a623" opacity="0.8"/>
+      </svg>
+    </div>
+    <!-- Navy logo -->
+    <div class="assoc-logo" style="background:#e8eef8;">
+      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="22" fill="none" stroke="#1a3a6a" stroke-width="2"/>
+        <path d="M15 30 Q25 10 35 30 L35 35 Q25 28 15 35Z" fill="#1a3a6a" opacity="0.8"/>
+        <line x1="25" y1="10" x2="25" y2="40" stroke="#1a3a6a" stroke-width="2"/>
+      </svg>
+    </div>
+    <!-- Air Force logo -->
+    <div class="assoc-logo" style="background:#e8f0f8;">
+      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="22" fill="none" stroke="#1a3a6a" stroke-width="2"/>
+        <path d="M10 28 L25 15 L40 28 L25 32Z" fill="#1a4a7a" opacity="0.8"/>
+        <circle cx="25" cy="28" r="4" fill="#f5a623"/>
+      </svg>
+    </div>
+    <!-- BSF logo -->
+    <div class="assoc-logo" style="background:#ffe8e8;">
+      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="22" fill="none" stroke="#8a1a1a" stroke-width="2"/>
+        <text x="25" y="29" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a1a1a" font-family="sans-serif">BSF</text>
+      </svg>
+    </div>
+    <!-- Shield logo -->
+    <div class="assoc-logo" style="background:#e8f0e8;">
+      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25 5 L42 12 L42 28 Q42 38 25 46 Q8 38 8 28 L8 12Z" fill="#1a5c1a" opacity="0.8"/>
+        <path d="M18 24 L23 29 L33 19" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <!-- AIMA logo -->
+    <div class="assoc-logo aima">AIMA</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon" style="width:44px;height:44px;background:#1a5c1a;"><i class="fas fa-shield-alt" style="color:#f5a623;font-size:16px;"></i></div>
+        <div class="logo-text">
+          <div class="brand" style="color:#f5a623;font-size:18px;">SHIELD</div>
+          <div class="sub" style="color:#888;">DEFENCE ACADEMY</div>
+        </div>
+      </div>
+      <p>Transforming Aspirants into Officers. Building Nation's Future.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Results</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>COURSES</h4>
+      <ul>
+        <li><a href="#">NDA</a></li>
+        <li><a href="#">CDS</a></li>
+        <li><a href="#">AFCAT</a></li>
+        <li><a href="#">Navy</a></li>
+        <li><a href="#">SSB Interview</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>CONTACT US</h4>
+      <ul>
+        <li><i class="fas fa-map-marker-alt"></i> Lucknow, Uttar Pradesh</li>
+        <li><i class="fas fa-phone"></i> +91 9454551884</li>
+        <li><i class="fas fa-phone"></i> +91 9519411948</li>
+        <li><i class="fas fa-envelope"></i> info@shielddefenceacademy.com</li>
+      </ul>
+    </div>
+    <div class="footer-enquire">
+      <h4>ENQUIRE NOW</h4>
+      <input type="text" placeholder="Your Name">
+      <input type="text" placeholder="Your Phone">
+      <select>
+        <option value="" disabled selected>Select Course</option>
+        <option>NDA</option>
+        <option>CDS</option>
+        <option>AFCAT</option>
+        <option>Navy</option>
+        <option>SSB Interview</option>
+      </select>
+      <button class="btn-submit">SUBMIT NOW</button>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Shield Defence Academy. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
