@@ -206,21 +206,21 @@
       <p class="text-sm text-army-600">Get a callback from our admissions team.</p>
       <form class="mt-5 space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.'); this.reset();">
         <div>
-          <label class="block text-sm font-semibold mb-1">Full Name</label>
+          <label class="block text-sm font-semibold mb-1">Full Name <span class="text-red-500">*</span></label>
           <input required type="text" placeholder="Your name" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-sm font-semibold mb-1">Phone</label>
+            <label class="block text-sm font-semibold mb-1">Phone <span class="text-red-500">*</span></label>
             <input required type="tel" placeholder="10-digit mobile" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
           </div>
           <div>
-            <label class="block text-sm font-semibold mb-1">Email</label>
-            <input type="email" placeholder="you@email.com" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+            <label class="block text-sm font-semibold mb-1">Email <span class="text-red-500">*</span></label>
+            <input required type="email" placeholder="you@email.com" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
           </div>
         </div>
         <div>
-          <label class="block text-sm font-semibold mb-1">Course</label>
+          <label class="block text-sm font-semibold mb-1">Course <span class="text-red-500">*</span></label>
           <select required class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2 bg-white">
             <option value="">Select Course</option>
             <option>NDA</option>
@@ -234,7 +234,7 @@
           </select>
         </div>
         <div>
-          <label class="block text-sm font-semibold mb-1">Message</label>
+          <label class="block text-sm font-semibold mb-1">Message <span class="text-army-500 font-normal text-xs">(Optional)</span></label>
           <textarea rows="3" placeholder="Tell us about your goal..." class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2"></textarea>
         </div>
         <button type="submit" class="w-full bg-army-700 hover:bg-army-800 text-white font-semibold py-3 rounded">
@@ -736,6 +736,56 @@
 <section id="contact" class="bg-army-800 text-army-50 pt-16 pb-8">
   <div class="max-w-7xl mx-auto px-4">
 
+    <!-- Footer Enquiry Form -->
+    <div class="mb-12">
+      <div class="text-center mb-6">
+        <p class="text-gold-400 font-semibold uppercase tracking-widest text-sm">Quick Connect</p>
+        <h2 class="text-2xl sm:text-3xl text-white mt-1">Send Us an Enquiry</h2>
+        <p class="text-army-100 text-sm mt-1">Fields marked <span class="text-red-400 font-bold">*</span> are mandatory</p>
+      </div>
+      <div class="max-w-2xl mx-auto bg-army-900 rounded-xl p-6 sm:p-8">
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.'); this.reset();">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold mb-1 text-army-100">Full Name <span class="text-red-400">*</span></label>
+              <input required type="text" placeholder="Your full name" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-1 text-army-100">Phone <span class="text-red-400">*</span></label>
+              <input required type="tel" placeholder="10-digit mobile" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold mb-1 text-army-100">Email <span class="text-red-400">*</span></label>
+              <input required type="email" placeholder="you@email.com" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-1 text-army-100">Course <span class="text-red-400">*</span></label>
+              <select required class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2">
+                <option value="">Select Course</option>
+                <option>NDA</option>
+                <option>NDA Foundation (NDA + Schooling)</option>
+                <option>CDS</option>
+                <option>SSB Training</option>
+                <option>Navy SSR &amp; AA</option>
+                <option>Air Force X/Y Group</option>
+                <option>AFCAT</option>
+                <option>Sainik School</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1 text-army-100">Message <span class="text-army-400 font-normal text-xs">(Optional)</span></label>
+            <textarea rows="3" placeholder="Tell us about your goal..." class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-white font-semibold py-3 rounded">
+            Send Enquiry <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
     <!-- Branch cards -->
     <div class="grid lg:grid-cols-3 gap-6 mb-12">
       <div class="bg-army-900 rounded-xl p-6">
@@ -828,6 +878,56 @@
   </div>
 </section>
 
+<!-- ============== POPUP ENQUIRY FORM ============== -->
+<div id="popupOverlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+  <div class="relative bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+    <button id="popupClose" class="absolute top-3 right-4 text-army-400 hover:text-army-900 text-3xl font-bold leading-none" aria-label="Close">&times;</button>
+    <div class="mb-1">
+      <span class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/40 text-gold-600 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest">
+        <i class="fa-solid fa-shield-halved"></i> Free Counselling
+      </span>
+    </div>
+    <h3 class="text-2xl font-display text-army-800 mt-2">Get a Free Callback</h3>
+    <p class="text-sm text-army-600 mb-1">Fill in your details and our admissions team will reach you shortly.</p>
+    <p class="text-xs text-army-500 mb-4">Fields marked <span class="text-red-500 font-bold">*</span> are mandatory</p>
+    <form id="popupForm" class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.'); document.getElementById('popupOverlay').classList.add('hidden'); sessionStorage.setItem('popupClosed','1'); this.reset();">
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-army-800">Full Name <span class="text-red-500">*</span></label>
+        <input required type="text" placeholder="Your full name" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-army-800">Phone <span class="text-red-500">*</span></label>
+        <input required type="tel" placeholder="10-digit mobile number" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-army-800">Email <span class="text-red-500">*</span></label>
+        <input required type="email" placeholder="you@email.com" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-army-800">Course <span class="text-red-500">*</span></label>
+        <select required class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2 bg-white">
+          <option value="">Select Course</option>
+          <option>NDA</option>
+          <option>NDA Foundation (NDA + Schooling)</option>
+          <option>CDS</option>
+          <option>SSB Training</option>
+          <option>Navy SSR &amp; AA</option>
+          <option>Air Force X/Y Group</option>
+          <option>AFCAT</option>
+          <option>Sainik School</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-army-800">Message <span class="text-army-500 font-normal text-xs">(Optional)</span></label>
+        <textarea rows="3" placeholder="Tell us about your goal..." class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-army-700 hover:bg-army-800 text-white font-semibold py-3 rounded">
+        Send Enquiry <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
 <!-- ============== FLOATING ACTION BUTTONS ============== -->
 <a href="https://api.whatsapp.com/send/?phone=919454551848&text=Jai+Hind%2C+I+have+a+query+about+SDA." target="_blank" rel="noopener" class="float-btn fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl z-50" aria-label="WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
@@ -847,6 +947,25 @@
 
   // Close mobile nav on link click
   mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
+
+  // Popup enquiry form — show after 2s, once per session
+  (function () {
+    const overlay = document.getElementById('popupOverlay');
+    const closeBtn = document.getElementById('popupClose');
+    if (!sessionStorage.getItem('popupClosed')) {
+      setTimeout(() => overlay.classList.remove('hidden'), 2000);
+    }
+    closeBtn?.addEventListener('click', () => {
+      overlay.classList.add('hidden');
+      sessionStorage.setItem('popupClosed', '1');
+    });
+    overlay?.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.add('hidden');
+        sessionStorage.setItem('popupClosed', '1');
+      }
+    });
+  })();
 </script>
 
 </body>
