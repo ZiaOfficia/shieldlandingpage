@@ -1,1130 +1,853 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shield Defence Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shield Defence Academy — Best NDA Coaching in Lucknow, India</title>
+<meta name="description" content="Shield Defence Academy, Lucknow — Best NDA, CDS, AFCAT, SSB, Sainik School and NDA Foundation coaching in India. Expert ex-defence officers, hostel facility, weekly mock tests." />
+<link rel="icon" href="images/sda-favicon.png" />
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          army: {
+            50:  '#f4f6f1',
+            100: '#e3e9d7',
+            200: '#c6d2af',
+            300: '#a3b682',
+            400: '#83995d',
+            500: '#677d44',
+            600: '#506333',
+            700: '#3f4d2a',
+            800: '#2f3a20',
+            900: '#1f2616',
+          },
+          gold: {
+            400: '#d4af37',
+            500: '#c19b1f',
+            600: '#a47f15',
+          }
+        },
+        fontFamily: {
+          display: ['"Oswald"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+        },
+        boxShadow: {
+          card: '0 8px 24px rgba(0,0,0,0.08)',
+        }
+      }
+    }
+  }
+</script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Poppins', sans-serif; color: #222; overflow-x: hidden; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #1f2616; }
+  h1,h2,h3,h4 { font-family: 'Oswald', sans-serif; letter-spacing: 0.02em; }
 
-  /* TOP BAR */
-  .top-bar {
-    background: #1a3a1a;
-    color: #ccc;
-    font-size: 12px;
-    padding: 6px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .top-bar .left { display: flex; gap: 24px; align-items: center; }
-  .top-bar .left span { display: flex; align-items: center; gap: 6px; }
-  .top-bar .left i { color: #f5a623; font-size: 11px; }
-  .top-bar .right { display: flex; gap: 12px; }
-  .top-bar .right a { color: #ccc; width: 24px; height: 24px; border-radius: 50%; border: 1px solid #555; display: flex; align-items: center; justify-content: center; font-size: 11px; text-decoration: none; transition: background 0.2s; }
-  .top-bar .right a:hover { background: #f5a623; border-color: #f5a623; color: #fff; }
-
-  /* NAVBAR */
-  nav {
-    background: #fff;
-    padding: 12px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .logo { display: flex; align-items: center; gap: 10px; }
-  .logo-icon {
-    width: 48px; height: 48px;
-    background: #1a5c1a;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-  }
-  .logo-icon::before {
-    content: '';
-    position: absolute;
-    width: 36px; height: 36px;
-    border: 2px solid #f5a623;
-    border-radius: 50%;
-  }
-  .logo-icon i { color: #f5a623; font-size: 18px; }
-  .logo-text { line-height: 1.1; }
-  .logo-text .brand { font-size: 20px; font-weight: 800; color: #1a5c1a; letter-spacing: 1px; }
-  .logo-text .sub { font-size: 10px; color: #555; letter-spacing: 2px; text-transform: uppercase; }
-  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-  .nav-links li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 13.5px;
-    font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 4px;
-    display: flex; align-items: center; gap: 4px;
-    transition: color 0.2s;
-    position: relative;
-  }
-  .nav-links li a.active { color: #f5a623; }
-  .nav-links li a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 14px; right: 14px;
-    height: 2px;
-    background: #f5a623;
-    border-radius: 2px;
-  }
-  .nav-links li a:hover { color: #f5a623; }
-  .nav-links li a i { font-size: 10px; }
-  .btn-enroll {
-    background: #f5a623;
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 13px;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: background 0.2s;
-  }
-  .btn-enroll:hover { background: #d4891a; }
-
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #0d1f0d 0%, #1a3a1a 40%, #1e3d2e 70%, #152a35 100%);
-    color: #fff;
-    padding: 60px 40px 0;
-    display: flex;
-    align-items: center;
-    min-height: 420px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    right: 15%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 320px; height: 320px;
-    background: radial-gradient(circle, rgba(245,166,35,0.35) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero-content { max-width: 480px; z-index: 2; position: relative; }
-  .hero-tagline { color: #f5a623; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-  .hero h1 { font-size: 46px; font-weight: 800; line-height: 1.1; margin-bottom: 4px; }
-  .hero h1 span { color: #f5a623; display: block; }
-  .hero-sub { font-size: 13.5px; color: #bbb; line-height: 1.7; margin: 14px 0 28px; }
-  .hero-sub strong { display: block; color: #ccc; }
-  .hero-btns { display: flex; gap: 14px; }
-  .btn-explore {
-    background: #2d7a2d;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 13px;
-    text-decoration: none;
-    display: flex; align-items: center; gap: 8px;
-    transition: background 0.2s;
-  }
-  .btn-explore:hover { background: #236a23; }
-  .btn-explore i { font-size: 12px; }
-  .btn-brochure {
-    background: transparent;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 13px;
-    text-decoration: none;
-    border: 1.5px solid #fff;
-    display: flex; align-items: center; gap: 8px;
-    transition: all 0.2s;
-  }
-  .btn-brochure:hover { background: rgba(255,255,255,0.1); }
-  .hero-image {
-    position: absolute;
-    right: 60px;
-    bottom: 0;
-    width: 420px;
-    z-index: 2;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-  /* Officer figures - stylized SVG placeholders representing the 3 officers */
-  .officers-wrapper {
-    position: relative;
-    width: 420px;
-    height: 360px;
-  }
-  .officer {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .officer-body {
-    width: 90px;
-    height: 240px;
-    border-radius: 8px 8px 0 0;
-    position: relative;
-  }
-  .officer-head {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background: #c8a87a;
-    position: absolute;
-    top: -27px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .officer-cap {
-    width: 64px;
-    height: 20px;
-    border-radius: 50% 50% 0 0;
-    position: absolute;
-    top: -46px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  /* Left officer - army green */
-  .officer-left { left: 10px; }
-  .officer-left .officer-body { background: linear-gradient(180deg, #4a5e2a 0%, #3a4e20 100%); }
-  .officer-left .officer-cap { background: #4a5e2a; }
-  /* Center officer - navy white */
-  .officer-center { left: 50%; transform: translateX(-50%); z-index: 3; }
-  .officer-center .officer-body { background: linear-gradient(180deg, #f0f0f0 0%, #ddd 100%); width: 100px; height: 260px; }
-  .officer-center .officer-cap { background: #1a3a6a; width: 72px; }
-  /* Right officer - air force blue */
-  .officer-right { right: 10px; }
-  .officer-right .officer-body { background: linear-gradient(180deg, #1a4a7a 0%, #123460 100%); }
-  .officer-right .officer-cap { background: #1a3a6a; }
-  /* Golden circle behind officers */
-  .golden-circle {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 260px;
-    height: 260px;
-    background: radial-gradient(circle, #f5a623 0%, #e8940f 50%, transparent 70%);
-    border-radius: 50%;
-    z-index: 1;
-    opacity: 0.8;
+  /* Hero background */
+  .hero-bg {
+    background-image:
+      linear-gradient(rgba(15,25,10,0.65), rgba(15,25,10,0.75)),
+      url('images/Web-Banner.webp');
+    background-size: cover;
+    background-position: center;
   }
 
-  /* HERO FEATURES BAR */
-  .hero-features {
-    background: #fff;
-    padding: 16px 40px;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    border-top: 3px solid #f5f5f5;
+  /* Marquee */
+  .marquee { overflow: hidden; white-space: nowrap; }
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
   }
-  .feature-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 24px;
-    border-right: 1px solid #e8e8e8;
-    flex: 1;
-  }
-  .feature-item:last-child { border-right: none; }
-  .feature-item i { font-size: 22px; color: #1a5c1a; }
-  .feature-text .title { font-size: 13px; font-weight: 700; color: #222; }
-  .feature-text .sub { font-size: 11px; color: #777; }
-
-  /* STATS BAR */
-  .stats-bar {
-    background: #1a3a1a;
-    padding: 14px 40px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0;
-  }
-  .stat-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 28px;
-    border-right: 1px solid #2d5a2d;
-    color: #fff;
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-item i { font-size: 20px; color: #f5a623; }
-  .stat-num { font-size: 20px; font-weight: 800; color: #fff; line-height: 1; }
-  .stat-label { font-size: 10px; color: #aaa; line-height: 1.3; }
-
-  /* SECTION COMMON */
-  .section { padding: 60px 40px; }
-  .section-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-  .section-title { font-size: 30px; font-weight: 800; color: #1a1a1a; margin-bottom: 36px; }
-
-  /* COURSES */
-  .courses-section { background: #fff; }
-  .courses-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-  .course-card {
-    border-radius: 10px;
-    padding: 28px 16px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    min-height: 160px;
-    justify-content: space-between;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .course-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
-  .course-card .icon { font-size: 32px; color: #fff; margin-bottom: 10px; }
-  .course-card h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-  .course-card p { font-size: 11px; color: rgba(255,255,255,0.85); margin-bottom: 12px; }
-  .course-arrow {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255,255,255,0.6);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff;
-    font-size: 11px;
-  }
-  .course-nda { background: #1a5c1a; }
-  .course-cds { background: #1a3a6a; }
-  .course-afcat { background: #6a1a7a; }
-  .course-navy { background: #1a6a6a; }
-  .course-ssb { background: #7a5a1a; }
-  .view-all-btn {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    border: 1.5px solid #333;
-    color: #333;
-    padding: 10px 28px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    display: flex; align-items: center; gap: 8px;
-    transition: all 0.2s;
-  }
-  .view-all-btn:hover { background: #333; color: #fff; }
-
-  /* WHY CHOOSE US */
-  .why-section { background: #f9f9f9; }
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-  }
-  .why-image img {
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-    height: 320px;
-    background: #ddd;
-  }
-  .why-image-placeholder {
-    width: 100%;
-    height: 320px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #1a3a1a, #2d5a2d);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 14px;
-    overflow: hidden;
-    position: relative;
-  }
-  .why-image-placeholder::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320"><rect fill="%231a3a1a" width="400" height="320"/><text x="200" y="160" text-anchor="middle" fill="%23fff" font-size="14" font-family="sans-serif">Classroom Training</text></svg>') center/cover;
-  }
-  .why-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-  .why-title { font-size: 28px; font-weight: 800; color: #1a1a1a; line-height: 1.2; margin-bottom: 24px; }
-  .why-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .why-feature { display: flex; gap: 10px; align-items: flex-start; }
-  .why-feature-icon { color: #1a5c1a; font-size: 16px; margin-top: 2px; flex-shrink: 0; }
-  .why-feature h4 { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
-  .why-feature p { font-size: 11.5px; color: #666; line-height: 1.5; }
-
-  /* ACHIEVEMENTS */
-  .achievements-section {
-    background: #1a3a1a;
-    padding: 50px 40px;
-    color: #fff;
-  }
-  .ach-inner { display: flex; gap: 60px; align-items: center; }
-  .ach-left { flex: 0 0 360px; }
-  .ach-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-  .ach-title { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 28px; }
-  .ach-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-  .ach-stat { text-align: center; padding: 10px 12px; border-right: 1px solid #2d5a2d; }
-  .ach-stat:last-child { border-right: none; }
-  .ach-stat i { font-size: 22px; color: #f5a623; margin-bottom: 6px; display: block; }
-  .ach-stat .num { font-size: 22px; font-weight: 800; color: #fff; }
-  .ach-stat .lbl { font-size: 10px; color: #aaa; line-height: 1.4; }
-  .ach-right { flex: 1; }
-  .toppers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .topper-card {
-    background: rgba(255,255,255,0.08);
-    border-radius: 8px;
-    padding: 12px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.15);
-  }
-  .topper-photo {
-    width: 80px; height: 80px;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #c8a87a, #a88060);
-    margin: 0 auto 10px;
-    overflow: hidden;
-    display: flex; align-items: flex-end; justify-content: center;
-  }
-  .topper-photo i { font-size: 48px; color: #7a5a3a; opacity: 0.7; }
-  .topper-rank { font-size: 22px; font-weight: 800; color: #f5a623; }
-  .topper-exam { font-size: 10px; color: #aaa; }
-  .dots { display: flex; gap: 6px; justify-content: center; margin-top: 20px; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); }
-  .dot.active { background: #f5a623; width: 20px; border-radius: 4px; }
-
-  /* LIFE AT SHIELD */
-  .life-section { background: #fff; padding: 60px 40px; text-align: center; }
-  .life-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
-  .life-label span { color: #f5a623; font-weight: 800; }
-  .life-title { font-size: 28px; font-weight: 800; color: #1a1a1a; margin-bottom: 32px; }
-  .life-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 28px; }
-  .life-card { text-align: center; }
-  .life-photo {
-    width: 100%;
-    height: 130px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 10px;
-  }
-  .life-photo-inner {
-    width: 100%;
-    height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px; color: rgba(255,255,255,0.7);
-  }
-  .lp1 { background: linear-gradient(135deg, #1a3a1a, #2d6a2d); }
-  .lp2 { background: linear-gradient(135deg, #1a1a4a, #2d2d7a); }
-  .lp3 { background: linear-gradient(135deg, #3a1a3a, #6a2d6a); }
-  .lp4 { background: linear-gradient(135deg, #1a3a1a, #3a6a3a); }
-  .lp5 { background: linear-gradient(135deg, #2a1a1a, #5a3a3a); }
-  .life-card h4 { font-size: 13px; font-weight: 700; color: #222; }
-  .life-card p { font-size: 11px; color: #888; }
-  .btn-gallery {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #f5a623;
-    color: #fff;
-    padding: 12px 28px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 13px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .btn-gallery:hover { background: #d4891a; }
-
-  /* TESTIMONIAL + CTA */
-  .testimonial-cta { display: grid; grid-template-columns: 1fr 1fr; }
-  .testimonial-side { padding: 50px 40px; background: #fff; }
-  .test-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-  .test-title { font-size: 26px; font-weight: 800; color: #1a1a1a; margin-bottom: 24px; }
-  .test-quote {
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 24px;
-    position: relative;
-    margin-bottom: 20px;
-  }
-  .test-quote::before {
-    content: '\201C';
-    font-size: 60px;
-    color: #f5a623;
-    line-height: 0;
-    position: absolute;
-    top: 30px; left: 20px;
-    opacity: 0.4;
-    font-family: Georgia, serif;
-  }
-  .test-quote p { font-size: 13px; color: #444; line-height: 1.7; padding-left: 10px; font-style: italic; }
-  .test-author { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
-  .test-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #c8a87a, #a87a50); }
-  .test-author-name { font-weight: 700; font-size: 13px; color: #1a1a1a; }
-  .test-author-role { font-size: 11px; color: #888; }
-  .test-dots { display: flex; gap: 6px; margin-top: 16px; }
-  .test-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
-  .test-dot.active { background: #f5a623; width: 20px; border-radius: 4px; }
-  .cta-side {
-    background: linear-gradient(135deg, #1a3a1a 0%, #152a35 100%);
-    padding: 50px 40px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-side::before {
-    content: '';
-    position: absolute;
-    right: -20px; top: -20px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .cta-soldier {
-    position: absolute;
-    right: 30px;
-    bottom: 0;
-    width: 140px;
-    height: 200px;
-    display: flex; align-items: flex-end; justify-content: center;
-  }
-  .soldier-silhouette {
-    width: 60px; height: 180px;
-    background: rgba(0,0,0,0.5);
-    clip-path: polygon(30% 0%, 70% 0%, 80% 15%, 75% 30%, 85% 100%, 15% 100%, 25% 30%, 20% 15%);
-    filter: drop-shadow(0 0 20px rgba(245,166,35,0.3));
-  }
-  .cta-title { font-size: 30px; font-weight: 800; line-height: 1.2; margin-bottom: 14px; z-index: 2; position: relative; }
-  .cta-title span { color: #f5a623; }
-  .cta-text { font-size: 13px; color: #bbb; line-height: 1.7; margin-bottom: 24px; max-width: 280px; z-index: 2; position: relative; }
-  .btn-enroll-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #f5a623;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 13px;
-    text-decoration: none;
-    width: fit-content;
-    z-index: 2;
-    position: relative;
-    transition: background 0.2s;
-  }
-  .btn-enroll-cta:hover { background: #d4891a; }
-  .cta-bg-img {
-    position: absolute;
-    bottom: 0; right: 0;
-    width: 260px;
-    height: 100%;
-    background: url('') right bottom/contain no-repeat;
-    opacity: 0.3;
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 
-  /* ASSOCIATIONS */
-  .associations { background: #fff; padding: 40px 40px; }
-  .assoc-label { color: #f5a623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-  .assoc-title { font-size: 24px; font-weight: 800; color: #1a1a1a; margin-bottom: 24px; }
-  .assoc-logos { display: flex; align-items: center; gap: 32px; }
-  .assoc-logo {
-    width: 70px; height: 70px;
-    background: #f5f5f5;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 12px; color: #333;
-    flex-shrink: 0;
-  }
-  .assoc-logo.aima { background: #e8f0e8; color: #1a5c1a; font-size: 16px; letter-spacing: 1px; }
+  /* Carousel dots */
+  .dot { width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,0.4); }
+  .dot.active { background:#d4af37; }
 
-  /* FOOTER */
-  footer {
-    background: #111;
-    color: #ccc;
-    padding: 50px 40px 24px;
-  }
-  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 40px; }
-  .footer-brand .logo-text .brand { color: #f5a623; }
-  .footer-brand p { font-size: 12px; color: #888; line-height: 1.7; margin: 14px 0; }
-  .footer-social { display: flex; gap: 10px; }
-  .footer-social a {
-    width: 30px; height: 30px;
-    border-radius: 4px;
-    border: 1px solid #333;
-    display: flex; align-items: center; justify-content: center;
-    color: #888; font-size: 12px;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .footer-social a:hover { background: #f5a623; border-color: #f5a623; color: #fff; }
-  footer h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: 0.5px; }
-  footer ul { list-style: none; }
-  footer ul li { margin-bottom: 8px; }
-  footer ul li a { color: #888; font-size: 12px; text-decoration: none; transition: color 0.2s; }
-  footer ul li a:hover { color: #f5a623; }
-  .footer-contact ul li { display: flex; gap: 8px; align-items: flex-start; color: #888; font-size: 12px; margin-bottom: 10px; }
-  .footer-contact ul li i { color: #f5a623; font-size: 12px; margin-top: 2px; flex-shrink: 0; }
-  .footer-enquire input, .footer-enquire select {
-    width: 100%;
-    padding: 9px 12px;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 4px;
-    color: #ccc;
-    font-size: 12px;
-    margin-bottom: 8px;
-    font-family: 'Poppins', sans-serif;
-    outline: none;
-  }
-  .footer-enquire input::placeholder { color: #666; }
-  .footer-enquire input:focus, .footer-enquire select:focus { border-color: #f5a623; }
-  .footer-enquire select option { background: #1a1a1a; }
-  .btn-submit {
-    width: 100%;
-    padding: 10px;
-    background: #f5a623;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: background 0.2s;
-  }
-  .btn-submit:hover { background: #d4891a; }
-  .footer-bottom {
-    border-top: 1px solid #222;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 12px;
-    color: #555;
-  }
+  /* Card hover */
+  .feat-card { transition: transform .25s ease, box-shadow .25s ease; }
+  .feat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.12); }
 
-  /* Decorative dots pattern */
-  .dots-decor {
-    position: absolute;
-    width: 80px; height: 80px;
-    background-image: radial-gradient(circle, rgba(245,166,35,0.4) 1px, transparent 1px);
-    background-size: 10px 10px;
-    border-radius: 4px;
-  }
+  /* Accordion */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .accordion-icon { transform: rotate(45deg); }
+  .accordion-icon { transition: transform .2s ease; }
+
+  /* Floating CTAs */
+  .float-btn { box-shadow: 0 6px 18px rgba(0,0,0,.25); }
 </style>
 </head>
-<body>
+<body class="bg-white">
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="left">
-    <span><i class="fas fa-map-marker-alt"></i> Lucknow, Uttar Pradesh</span>
-    <span><i class="fas fa-phone"></i> +91 9454551884, 9519411948</span>
-    <span><i class="fas fa-envelope"></i> info@shielddefenceacademy.com</span>
-  </div>
-  <div class="right">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-youtube"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+<!-- ============== TOP BAR ============== -->
+<div class="bg-army-800 text-army-50 text-sm">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex flex-wrap items-center gap-4">
+      <a href="tel:+919454551848" class="hover:text-gold-400"><i class="fa-solid fa-phone mr-1"></i> +91 94545 51848</a>
+      <a href="tel:+919519441948" class="hover:text-gold-400"><i class="fa-solid fa-phone mr-1"></i> +91 95194 41948</a>
+      <span class="hidden md:inline-flex items-center"><i class="fa-regular fa-envelope mr-1"></i> shielddefenceacademy@gmail.com</span>
+    </div>
+    <div class="flex items-center gap-3 text-base">
+      <a href="https://www.facebook.com/Shielddefenceacademy" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-gold-400"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/shielddefenceacademy/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-gold-400"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://twitter.com/shield_defence" target="_blank" rel="noopener" aria-label="Twitter" class="hover:text-gold-400"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.youtube.com/c/ShieldDefenceAcademy" target="_blank" rel="noopener" aria-label="YouTube" class="hover:text-gold-400"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://t.me/shielddefenceacaemy" target="_blank" rel="noopener" aria-label="Telegram" class="hover:text-gold-400"><i class="fa-brands fa-telegram"></i></a>
+      <a href="https://api.whatsapp.com/send/?phone=919454551848&text=Jai+Hind%2C+I+have+a+query+about+SDA." target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:text-gold-400"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
   </div>
 </div>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="logo">
-    <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
-    <div class="logo-text">
-      <div class="brand">SHIELD</div>
-      <div class="sub">DEFENCE ACADEMY</div>
-    </div>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#" class="active">Home</a></li>
-    <li><a href="#">About Us <i class="fas fa-chevron-down"></i></a></li>
-    <li><a href="#">Courses <i class="fas fa-chevron-down"></i></a></li>
-    <li><a href="#">Results <i class="fas fa-chevron-down"></i></a></li>
-    <li><a href="#">Gallery</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <a href="#" class="btn-enroll">ENROLL NOW</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-tagline">DREAM. PREPARE. DEFEND.</div>
-    <h1>Shape Your Future<span>Serve The Nation</span></h1>
-    <div class="hero-sub">
-      Expert guidance. Proven strategies. Personal attention.<br>
-      Your journey to NDA, CDS, AFCAT, Navy & more starts here.
-    </div>
-    <div class="hero-btns">
-      <a href="#" class="btn-explore"><i class="fas fa-arrow-right"></i> EXPLORE COURSES</a>
-      <a href="#" class="btn-brochure"><i class="fas fa-download"></i> DOWNLOAD BROCHURE</a>
-    </div>
-  </div>
-
-  <!-- Officers Visual -->
-  <div class="hero-image">
-    <div class="officers-wrapper">
-      <div class="golden-circle"></div>
-      <!-- Left officer - Army -->
-      <div class="officer officer-left">
-        <div class="officer-body" style="background:linear-gradient(180deg,#4a5e2a,#3a4e20);width:85px;height:240px;border-radius:8px 8px 0 0;position:relative;">
-          <div class="officer-cap" style="background:#4a5e2a;position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:60px;height:18px;border-radius:50% 50% 0 0;"></div>
-          <div class="officer-head" style="background:#c8a87a;width:50px;height:50px;border-radius:50%;position:absolute;top:-43px;left:50%;transform:translateX(-50%);"></div>
-          <!-- Uniform details -->
-          <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:rgba(0,0,0,0.2);border-radius:0 0 0 0;"></div>
-          <div style="position:absolute;top:30px;left:50%;transform:translateX(-50%);width:40px;height:3px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
-        </div>
+<!-- ============== NAVBAR ============== -->
+<header class="sticky top-0 z-40 bg-white border-b border-army-100 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <img src="images/sda-logo.svg" alt="Shield Defence Academy logo" class="h-12 w-auto" />
+      <div class="leading-tight hidden sm:block">
+        <div class="font-display text-xl text-army-800">Shield Defence Academy</div>
+        <div class="text-xs text-army-600">Best NDA Coaching in Lucknow, India</div>
       </div>
-      <!-- Center officer - Navy White -->
-      <div class="officer officer-center">
-        <div style="background:linear-gradient(180deg,#f0f0f0,#e0e0e0);width:100px;height:260px;border-radius:8px 8px 0 0;position:relative;">
-          <div style="background:#1a3a6a;position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:70px;height:20px;border-radius:50% 50% 0 0;"></div>
-          <div style="background:#c8a87a;width:54px;height:54px;border-radius:50%;position:absolute;top:-48px;left:50%;transform:translateX(-50%);"></div>
-          <div style="position:absolute;top:20px;left:8px;right:8px;height:3px;background:#1a3a6a;border-radius:2px;"></div>
-          <div style="position:absolute;top:30px;left:8px;right:8px;height:2px;background:#c0a030;border-radius:2px;"></div>
-          <div style="position:absolute;top:50px;left:50%;transform:translateX(-50%);width:1px;height:80px;background:#aaa;"></div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:rgba(0,0,0,0.05);"></div>
-        </div>
-      </div>
-      <!-- Right officer - Air Force Blue -->
-      <div class="officer officer-right">
-        <div style="background:linear-gradient(180deg,#1a4a7a,#123460);width:85px;height:240px;border-radius:8px 8px 0 0;position:relative;">
-          <div style="background:#1a3a6a;position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:60px;height:18px;border-radius:50% 50% 0 0;"></div>
-          <div style="background:#c8a87a;width:50px;height:50px;border-radius:50%;position:absolute;top:-43px;left:50%;transform:translateX(-50%);"></div>
-          <div style="position:absolute;top:30px;left:50%;transform:translateX(-50%);width:40px;height:3px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
-          <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:rgba(0,0,0,0.2);"></div>
-        </div>
-      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 font-medium text-army-800">
+      <a href="#home" class="hover:text-gold-500">Home</a>
+      <a href="#about" class="hover:text-gold-500">About</a>
+      <a href="#courses" class="hover:text-gold-500">Courses</a>
+      <a href="#faculty" class="hover:text-gold-500">Faculty</a>
+      <a href="#features" class="hover:text-gold-500">Why Us</a>
+      <a href="#results" class="hover:text-gold-500">Results</a>
+      <a href="#faq" class="hover:text-gold-500">FAQ</a>
+      <a href="#contact" class="hover:text-gold-500">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#enquire" class="hidden md:inline-block bg-gold-500 hover:bg-gold-600 text-white font-semibold px-4 py-2 rounded">
+        Enroll Now
+      </a>
+      <button id="navToggle" class="lg:hidden text-army-800 text-2xl" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
-</section>
+  <div id="mobileNav" class="lg:hidden hidden border-t border-army-100">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-2 font-medium text-army-800">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#faculty">Faculty</a>
+      <a href="#features">Why Us</a>
+      <a href="#results">Results</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#enquire" class="bg-gold-500 text-white text-center px-4 py-2 rounded mt-2">Enroll Now</a>
+    </div>
+  </div>
+</header>
 
-<!-- HERO FEATURES + STATS -->
-<div class="hero-features">
-  <div class="feature-item">
-    <i class="fas fa-chalkboard-teacher"></i>
-    <div class="feature-text"><div class="title">Expert Faculty</div><div class="sub">Experienced & Dedicated</div></div>
-  </div>
-  <div class="feature-item">
-    <i class="fas fa-trophy"></i>
-    <div class="feature-text"><div class="title">Proven Results</div><div class="sub">Consistent Selections</div></div>
-  </div>
-  <div class="feature-item">
-    <i class="fas fa-user-check"></i>
-    <div class="feature-text"><div class="title">Personalized Guidance</div><div class="sub">Individual Attention</div></div>
-  </div>
-  <div class="feature-item">
-    <i class="fas fa-brain"></i>
-    <div class="feature-text"><div class="title">Holistic Development</div><div class="sub">Beyond Academics</div></div>
-  </div>
-</div>
-<div class="stats-bar">
-  <div class="stat-item">
-    <i class="fas fa-calendar-check"></i>
-    <div><div class="stat-num">15+</div><div class="stat-label">Years of<br>Excellence</div></div>
-  </div>
-  <div class="stat-item">
-    <i class="fas fa-users"></i>
-    <div><div class="stat-num">5000+</div><div class="stat-label">Successful<br>Selections</div></div>
-  </div>
-  <div class="stat-item">
-    <i class="fas fa-user-tie"></i>
-    <div><div class="stat-num">20+</div><div class="stat-label">Expert<br>Faculty</div></div>
-  </div>
-  <div class="stat-item">
-    <i class="fas fa-shield-alt"></i>
-    <div><div class="stat-num">100%</div><div class="stat-label">Dedication<br>to Success</div></div>
-  </div>
-</div>
-
-<!-- COURSES -->
-<section class="section courses-section">
-  <div class="section-label">OUR COURSES</div>
-  <div class="section-title">A Way to Your Success</div>
-  <div class="courses-grid">
-    <a href="#" class="course-card course-nda">
-      <div class="icon"><i class="fas fa-star"></i></div>
-      <h3>NDA</h3>
-      <p>For 12th Passed Aspirants</p>
-      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
-    </a>
-    <a href="#" class="course-card course-cds">
-      <div class="icon"><i class="fas fa-medal"></i></div>
-      <h3>CDS</h3>
-      <p>For Graduates</p>
-      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
-    </a>
-    <a href="#" class="course-card course-afcat">
-      <div class="icon"><i class="fas fa-plane"></i></div>
-      <h3>AFCAT</h3>
-      <p>Air Force Entry</p>
-      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
-    </a>
-    <a href="#" class="course-card course-navy">
-      <div class="icon"><i class="fas fa-anchor"></i></div>
-      <h3>NAVY</h3>
-      <p>SSR & AA Entries</p>
-      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
-    </a>
-    <a href="#" class="course-card course-ssb">
-      <div class="icon"><i class="fas fa-comments"></i></div>
-      <h3>SSB INTERVIEW</h3>
-      <p style="font-size:10px;">Personality Development & Interview Training</p>
-      <div class="course-arrow"><i class="fas fa-arrow-right"></i></div>
-    </a>
-  </div>
-  <div style="text-align:center;">
-    <a href="#" class="view-all-btn">VIEW ALL COURSES <i class="fas fa-arrow-right"></i></a>
-  </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section class="section why-section">
-  <div class="why-grid">
+<!-- ============== HERO ============== -->
+<section id="home" class="hero-bg text-white">
+  <div class="max-w-7xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
     <div>
-      <div class="why-image-placeholder">
-        <svg width="100%" height="100%" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg">
-          <rect fill="#1a3a1a" width="500" height="320"/>
-          <!-- Classroom scene -->
-          <rect x="20" y="40" width="460" height="200" rx="4" fill="#162e16"/>
-          <!-- Board -->
-          <rect x="150" y="50" width="200" height="120" rx="4" fill="#0d1f0d"/>
-          <line x1="160" y1="70" x2="340" y2="70" stroke="#3a6a3a" stroke-width="2"/>
-          <line x1="160" y1="90" x2="280" y2="90" stroke="#3a6a3a" stroke-width="2"/>
-          <line x1="160" y1="110" x2="310" y2="110" stroke="#3a6a3a" stroke-width="2"/>
-          <!-- Students -->
-          <g fill="#2d5a2d">
-            <rect x="30" y="200" width="50" height="40" rx="4"/>
-            <rect x="90" y="200" width="50" height="40" rx="4"/>
-            <rect x="150" y="200" width="50" height="40" rx="4"/>
-            <rect x="210" y="200" width="50" height="40" rx="4"/>
-            <rect x="270" y="200" width="50" height="40" rx="4"/>
-            <rect x="330" y="200" width="50" height="40" rx="4"/>
-            <rect x="390" y="200" width="50" height="40" rx="4"/>
-          </g>
-          <!-- Student heads -->
-          <g fill="#c8a87a">
-            <circle cx="55" cy="194" r="10"/>
-            <circle cx="115" cy="194" r="10"/>
-            <circle cx="175" cy="194" r="10"/>
-            <circle cx="235" cy="194" r="10"/>
-            <circle cx="295" cy="194" r="10"/>
-            <circle cx="355" cy="194" r="10"/>
-            <circle cx="415" cy="194" r="10"/>
-          </g>
-          <text x="250" y="290" text-anchor="middle" fill="#aaa" font-size="13" font-family="sans-serif">Classroom Training</text>
-        </svg>
+      <div class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/40 text-gold-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest">
+        <i class="fa-solid fa-shield-halved"></i> Jai Hind • Est. 2015
       </div>
-    </div>
-    <div>
-      <div class="why-label">WHY CHOOSE US</div>
-      <div class="why-title">Training That Builds<br>Officers & Leaders</div>
-      <div class="why-features">
-        <div class="why-feature">
-          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
-          <div>
-            <h4>Structured & Comprehensive Curriculum</h4>
-            <p>Well-planned courses covering every aspect.</p>
-          </div>
-        </div>
-        <div class="why-feature">
-          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
-          <div>
-            <h4>Mentorship & Personal Attention</h4>
-            <p>Guiding every step of your journey.</p>
-          </div>
-        </div>
-        <div class="why-feature">
-          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
-          <div>
-            <h4>Regular Assessment & Mock Tests</h4>
-            <p>Evaluate, improve and excel.</p>
-          </div>
-        </div>
-        <div class="why-feature">
-          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
-          <div>
-            <h4>Personality Development</h4>
-            <p>Building leaders with confidence.</p>
-          </div>
-        </div>
-        <div class="why-feature">
-          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
-          <div>
-            <h4>Physical Fitness Training</h4>
-            <p>Build stamina, strength & confidence.</p>
-          </div>
-        </div>
-        <div class="why-feature">
-          <div class="why-feature-icon"><i class="fas fa-check-circle"></i></div>
-          <div>
-            <h4>SSB Interview Training</h4>
-            <p>Expert training for every stage.</p>
-          </div>
-        </div>
+      <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+        Best <span class="text-gold-400">NDA Coaching</span><br/>
+        in Lucknow, India
+      </h1>
+      <p class="mt-5 text-lg text-army-50/90 max-w-xl">
+        Discipline. Dedication. Determination. Train at Shield Defence Academy — where defence aspirants are shaped into officers under the mentorship of retired SSB board members, GTOs and psychologists.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="#enquire" class="bg-gold-500 hover:bg-gold-600 text-white font-semibold px-6 py-3 rounded">
+          <i class="fa-solid fa-pen-to-square mr-2"></i>Free Enquiry
+        </a>
+        <a href="tel:+919454551848" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded">
+          <i class="fa-solid fa-phone mr-2"></i>+91 94545 51848
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=919454551848&text=Jai+Hind%2C+I+have+a+query+about+SDA." target="_blank" rel="noopener" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded">
+          <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
+        </a>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ACHIEVEMENTS -->
-<section class="achievements-section">
-  <div class="ach-inner">
-    <div class="ach-left">
-      <div class="ach-label">OUR ACHIEVEMENTS</div>
-      <div class="ach-title">Proud Moments, Glorious Futures</div>
-      <div class="ach-stats">
-        <div class="ach-stat">
-          <i class="fas fa-trophy"></i>
-          <div class="num">5000+</div>
-          <div class="lbl">Successful Selections</div>
+      <div class="mt-10 grid grid-cols-3 gap-4 max-w-lg">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gold-400">150+</div>
+          <div class="text-xs uppercase tracking-wider text-army-50/80">Aspirants / Year</div>
         </div>
-        <div class="ach-stat">
-          <i class="fas fa-star"></i>
-          <div class="num">15+</div>
-          <div class="lbl">Years of Excellence</div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gold-400">10+</div>
+          <div class="text-xs uppercase tracking-wider text-army-50/80">Years of Legacy</div>
         </div>
-        <div class="ach-stat">
-          <i class="fas fa-user-tie"></i>
-          <div class="num">20+</div>
-          <div class="lbl">Expert Faculty</div>
-        </div>
-        <div class="ach-stat">
-          <i class="fas fa-shield-alt"></i>
-          <div class="num">100%</div>
-          <div class="lbl">Dedication to Success</div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-gold-400">3</div>
+          <div class="text-xs uppercase tracking-wider text-army-50/80">Lucknow Campuses</div>
         </div>
       </div>
     </div>
-    <div class="ach-right">
-      <div class="toppers-grid">
-        <div class="topper-card">
-          <div class="topper-photo"><i class="fas fa-user" style="font-size:42px;color:#7a5a3a;opacity:0.7;align-self:flex-end;"></i></div>
-          <div class="topper-rank">AIR 12</div>
-          <div class="topper-exam">NDA 2023</div>
-        </div>
-        <div class="topper-card">
-          <div class="topper-photo"><i class="fas fa-user" style="font-size:42px;color:#7a5a3a;opacity:0.7;align-self:flex-end;"></i></div>
-          <div class="topper-rank">AIR 35</div>
-          <div class="topper-exam">CDS 2023</div>
-        </div>
-        <div class="topper-card">
-          <div class="topper-photo"><i class="fas fa-user" style="font-size:42px;color:#7a5a3a;opacity:0.7;align-self:flex-end;"></i></div>
-          <div class="topper-rank">AIR 06</div>
-          <div class="topper-exam">AFCAT 2023</div>
-        </div>
-        <div class="topper-card">
-          <div class="topper-photo"><i class="fas fa-user" style="font-size:42px;color:#7a5a3a;opacity:0.7;align-self:flex-end;"></i></div>
-          <div class="topper-rank">AIR 21</div>
-          <div class="topper-exam">NDA 2023</div>
-        </div>
-      </div>
-      <div class="dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- LIFE AT SHIELD -->
-<section class="life-section">
-  <div class="life-label">LIFE AT <span>SHIELD</span></div>
-  <div class="life-title">Discipline Today, Leadership Tomorrow</div>
-  <div class="life-grid">
-    <div class="life-card">
-      <div class="life-photo"><div class="life-photo-inner lp1"><i class="fas fa-chalkboard"></i></div></div>
-      <h4>Classroom Training</h4><p>Conceptual Clarity</p>
-    </div>
-    <div class="life-card">
-      <div class="life-photo"><div class="life-photo-inner lp2"><i class="fas fa-running"></i></div></div>
-      <h4>Physical Training</h4><p>Strength & Stamina</p>
-    </div>
-    <div class="life-card">
-      <div class="life-photo"><div class="life-photo-inner lp3"><i class="fas fa-comments"></i></div></div>
-      <h4>SSB Practice</h4><p>Real Interview Experience</p>
-    </div>
-    <div class="life-card">
-      <div class="life-photo"><div class="life-photo-inner lp4"><i class="fas fa-campground"></i></div></div>
-      <h4>Outdoor Activities</h4><p>Teamwork & Confidence</p>
-    </div>
-    <div class="life-card">
-      <div class="life-photo"><div class="life-photo-inner lp5"><i class="fas fa-users"></i></div></div>
-      <h4>Group Discussions</h4><p>Communication Skills</p>
-    </div>
-  </div>
-  <a href="#" class="btn-gallery">EXPLORE GALLERY <i class="fas fa-arrow-right"></i></a>
-</section>
-
-<!-- TESTIMONIAL + CTA -->
-<div class="testimonial-cta">
-  <div class="testimonial-side">
-    <div class="test-label">WHAT OUR STUDENTS SAY</div>
-    <div class="test-title">Trusted by Thousands of Aspirants</div>
-    <div class="test-quote">
-      <p>The faculty at Shield Defence Academy motivates us to push our limits and achieve our dreams.</p>
-      <div class="test-author">
-        <div class="test-avatar"></div>
+    <!-- Enquiry Form -->
+    <div id="enquire" class="bg-white text-army-900 rounded-xl shadow-2xl p-6 sm:p-8">
+      <h3 class="text-2xl font-display text-army-800">Quick Enquiry</h3>
+      <p class="text-sm text-army-600">Get a callback from our admissions team.</p>
+      <form class="mt-5 space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.'); this.reset();">
         <div>
-          <div class="test-author-name">– Ayush Singh</div>
-          <div class="test-author-role">NDA 2023</div>
+          <label class="block text-sm font-semibold mb-1">Full Name</label>
+          <input required type="text" placeholder="Your name" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
         </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-semibold mb-1">Phone</label>
+            <input required type="tel" placeholder="10-digit mobile" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1">Email</label>
+            <input type="email" placeholder="you@email.com" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Course</label>
+          <select required class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2 bg-white">
+            <option value="">Select Course</option>
+            <option>NDA</option>
+            <option>NDA Foundation (NDA + Schooling)</option>
+            <option>CDS</option>
+            <option>SSB Training</option>
+            <option>Navy SSR &amp; AA</option>
+            <option>Air Force X/Y Group</option>
+            <option>AFCAT</option>
+            <option>Sainik School</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">Message</label>
+          <textarea rows="3" placeholder="Tell us about your goal..." class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-army-700 hover:bg-army-800 text-white font-semibold py-3 rounded">
+          Send Enquiry <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Banner strip -->
+  <div class="bg-army-900/60 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-4 marquee">
+      <div class="marquee-track text-army-50/90 text-sm font-semibold uppercase tracking-widest">
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>NDA &amp; NA</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>CDS</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>SSB</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>AIR FORCE X &amp; Y</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>AFCAT</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>CAPF</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>NAVY AA/SSR</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>MNS</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>SAINIK SCHOOL</span>
+        <!-- duplicate for seamless scroll -->
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>NDA &amp; NA</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>CDS</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>SSB</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>AIR FORCE X &amp; Y</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>AFCAT</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>CAPF</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>NAVY AA/SSR</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>MNS</span>
+        <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>SAINIK SCHOOL</span>
       </div>
     </div>
-    <div class="test-dots">
-      <div class="test-dot active"></div>
-      <div class="test-dot"></div>
-      <div class="test-dot"></div>
-      <div class="test-dot"></div>
-    </div>
-  </div>
-  <div class="cta-side">
-    <!-- Soldier silhouette with sunset bg -->
-    <svg style="position:absolute;bottom:0;right:0;width:260px;height:100%;opacity:0.25;" viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
-      <defs><radialGradient id="sunGlow" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="#f5a623" stop-opacity="0.8"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
-      <circle cx="130" cy="180" r="100" fill="url(#sunGlow)"/>
-      <path d="M100 300 L100 150 Q115 100 130 90 Q145 100 160 150 L160 300Z" fill="#111" opacity="0.9"/>
-      <path d="M115 130 Q130 110 145 130" stroke="#222" stroke-width="3" fill="none"/>
-      <circle cx="130" cy="100" r="18" fill="#222" opacity="0.9"/>
-    </svg>
-    <div class="cta-title">Your Journey<br><span>Starts Now!</span></div>
-    <div class="cta-text">Join Shield Defence Academy and take the first step towards a prestigious career in the Armed Forces.</div>
-    <a href="#" class="btn-enroll-cta">ENROLL NOW <i class="fas fa-arrow-right"></i></a>
-  </div>
-</div>
-
-<!-- ASSOCIATIONS -->
-<section class="associations">
-  <div class="assoc-label">OUR ASSOCIATIONS</div>
-  <div class="assoc-title">Partnering for Excellence</div>
-  <div class="assoc-logos">
-    <!-- Indian Army logo placeholder -->
-    <div class="assoc-logo" style="background:#f0e8d0;">
-      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="25" cy="25" r="22" fill="none" stroke="#8a6a20" stroke-width="2"/>
-        <polygon points="25,8 28,20 40,20 31,28 34,40 25,32 16,40 19,28 10,20 22,20" fill="#f5a623" opacity="0.8"/>
-      </svg>
-    </div>
-    <!-- Navy logo -->
-    <div class="assoc-logo" style="background:#e8eef8;">
-      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="25" cy="25" r="22" fill="none" stroke="#1a3a6a" stroke-width="2"/>
-        <path d="M15 30 Q25 10 35 30 L35 35 Q25 28 15 35Z" fill="#1a3a6a" opacity="0.8"/>
-        <line x1="25" y1="10" x2="25" y2="40" stroke="#1a3a6a" stroke-width="2"/>
-      </svg>
-    </div>
-    <!-- Air Force logo -->
-    <div class="assoc-logo" style="background:#e8f0f8;">
-      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="25" cy="25" r="22" fill="none" stroke="#1a3a6a" stroke-width="2"/>
-        <path d="M10 28 L25 15 L40 28 L25 32Z" fill="#1a4a7a" opacity="0.8"/>
-        <circle cx="25" cy="28" r="4" fill="#f5a623"/>
-      </svg>
-    </div>
-    <!-- BSF logo -->
-    <div class="assoc-logo" style="background:#ffe8e8;">
-      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="25" cy="25" r="22" fill="none" stroke="#8a1a1a" stroke-width="2"/>
-        <text x="25" y="29" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a1a1a" font-family="sans-serif">BSF</text>
-      </svg>
-    </div>
-    <!-- Shield logo -->
-    <div class="assoc-logo" style="background:#e8f0e8;">
-      <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-        <path d="M25 5 L42 12 L42 28 Q42 38 25 46 Q8 38 8 28 L8 12Z" fill="#1a5c1a" opacity="0.8"/>
-        <path d="M18 24 L23 29 L33 19" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <!-- AIMA logo -->
-    <div class="assoc-logo aima">AIMA</div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="logo">
-        <div class="logo-icon" style="width:44px;height:44px;background:#1a5c1a;"><i class="fas fa-shield-alt" style="color:#f5a623;font-size:16px;"></i></div>
-        <div class="logo-text">
-          <div class="brand" style="color:#f5a623;font-size:18px;">SHIELD</div>
-          <div class="sub" style="color:#888;">DEFENCE ACADEMY</div>
-        </div>
-      </div>
-      <p>Transforming Aspirants into Officers. Building Nation's Future.</p>
-      <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+<!-- ============== BANNER GALLERY ============== -->
+<section class="bg-army-50 py-12">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-8">
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Glimpses</p>
+      <h2 class="text-3xl sm:text-4xl text-army-800">Shield Defence Academy in Action</h2>
     </div>
-    <div>
-      <h4>QUICK LINKS</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Courses</a></li>
-        <li><a href="#">Results</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>COURSES</h4>
-      <ul>
-        <li><a href="#">NDA</a></li>
-        <li><a href="#">CDS</a></li>
-        <li><a href="#">AFCAT</a></li>
-        <li><a href="#">Navy</a></li>
-        <li><a href="#">SSB Interview</a></li>
-      </ul>
-    </div>
-    <div class="footer-contact">
-      <h4>CONTACT US</h4>
-      <ul>
-        <li><i class="fas fa-map-marker-alt"></i> Lucknow, Uttar Pradesh</li>
-        <li><i class="fas fa-phone"></i> +91 9454551884</li>
-        <li><i class="fas fa-phone"></i> +91 9519411948</li>
-        <li><i class="fas fa-envelope"></i> info@shielddefenceacademy.com</li>
-      </ul>
-    </div>
-    <div class="footer-enquire">
-      <h4>ENQUIRE NOW</h4>
-      <input type="text" placeholder="Your Name">
-      <input type="text" placeholder="Your Phone">
-      <select>
-        <option value="" disabled selected>Select Course</option>
-        <option>NDA</option>
-        <option>CDS</option>
-        <option>AFCAT</option>
-        <option>Navy</option>
-        <option>SSB Interview</option>
-      </select>
-      <button class="btn-submit">SUBMIT NOW</button>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="images/banner07.webp" alt="Best defence academy in Lucknow" class="rounded-lg shadow-card w-full h-40 object-cover" />
+      <img src="images/New-Banner-copy-1.webp" alt="NDA SRMPS banner" class="rounded-lg shadow-card w-full h-40 object-cover" />
+      <img src="images/1-2.webp" alt="Shield success board" class="rounded-lg shadow-card w-full h-40 object-cover" />
+      <img src="images/Pop3.webp" alt="POP moments with NDA officers" class="rounded-lg shadow-card w-full h-40 object-cover" />
+      <img src="images/Pop2.webp" alt="Director with NDA officers" class="rounded-lg shadow-card w-full h-40 object-cover" />
+      <img src="images/Backup_of_Backup_of_pop-banner1.webp" alt="POP banner" class="rounded-lg shadow-card w-full h-40 object-cover" />
+      <img src="images/Banner-5-1.webp" alt="Defence training banner" class="rounded-lg shadow-card w-full h-40 object-cover" />
+      <img src="images/Banner-6.webp" alt="Best defence academy" class="rounded-lg shadow-card w-full h-40 object-cover" />
     </div>
   </div>
-  <div class="footer-bottom">© 2025 Shield Defence Academy. All Rights Reserved.</div>
-</footer>
+</section>
+
+<!-- ============== ABOUT ============== -->
+<section id="about" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Welcome to Shield</p>
+      <h2 class="text-3xl sm:text-4xl text-army-800 mt-2">Where Dreams of Wearing the Uniform Turn into Reality</h2>
+      <div class="mt-5 space-y-4 text-army-700 leading-relaxed">
+        <p>
+          Established in 2015, Shield Defence Academy has emerged as one of Lucknow's most trusted institutions for defence aspirants. Every year, more than 150 candidates step through our doors with a single dream — to wear the uniform — and a strong majority of them go on to be recommended for the Armed Forces.
+        </p>
+        <p>
+          Under the leadership of Founder Director <strong>Shivam Shukla</strong>, our training goes far beyond textbooks. We focus on personality development, real exam readiness, and the discipline that defines an officer. Written exam coaching for NDA, CDS, AFCAT, Air Force X/Y, Navy and Sainik School is integrated with end-to-end SSB preparation — Screening, Psychology, GTO and Interview — all under one roof.
+        </p>
+        <p>
+          With three campuses across Lucknow, smart classrooms, India's largest GTO ground, hostel facilities and a panel of retired SSB board officers, Shield is engineered for one purpose: to prepare candidates who don't just clear exams, but who are worthy of leading the nation.
+        </p>
+      </div>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="#courses" class="bg-army-700 hover:bg-army-800 text-white font-semibold px-5 py-3 rounded">Explore Courses</a>
+        <a href="https://shielddefenceacademy.com/about-us-shield-defence-academy/" target="_blank" rel="noopener" class="border-2 border-army-700 text-army-700 hover:bg-army-700 hover:text-white font-semibold px-5 py-3 rounded">Read More</a>
+      </div>
+    </div>
+
+    <div class="relative">
+      <img src="images/Front-page.webp" alt="Best NDA coaching in Lucknow" class="rounded-xl shadow-2xl w-full" />
+      <div class="absolute -bottom-6 -left-6 bg-gold-500 text-white p-5 rounded-xl shadow-xl hidden md:block">
+        <div class="text-3xl font-display font-bold">2015</div>
+        <div class="text-xs uppercase tracking-widest">Trusted Since</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DIRECTOR MESSAGE ============== -->
+<section class="py-16 bg-army-800 text-army-50">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-10 items-center">
+    <div class="text-center">
+      <img src="images/Untitled-design-3.jpg" alt="Shivam Shukla — Founder Director, Shield Defence Academy" class="rounded-xl shadow-2xl mx-auto w-64 h-64 object-cover" />
+      <h3 class="mt-5 text-2xl font-display text-gold-400">Shivam Shukla</h3>
+      <p class="text-army-100">Founder Director</p>
+    </div>
+    <div class="lg:col-span-2">
+      <p class="text-gold-400 font-semibold uppercase tracking-widest text-sm">Director's Message</p>
+      <h2 class="text-3xl sm:text-4xl mt-2">We Don't Build Careers. We Build Fighters of Bharat.</h2>
+      <div class="mt-5 space-y-4 text-army-100 leading-relaxed">
+        <p>
+          "Every aspirant who walks through our gate is not just a student — they are a torchbearer of the nation's future. At Shield Defence Academy, we don't merely prepare candidates for selection; we shape them into individuals worthy of the rank they will one day earn."
+        </p>
+        <p>
+          "I founded SDA after noticing a clear gap — countless young Indians with the potential to lead, but without the right guidance, mentors or environment. Many institutes teach shortcuts. We teach character. Preparation here is built on three pillars: rigorous academics, real SSB exposure, and the discipline that turns aspirants into officers."
+        </p>
+        <p class="italic text-gold-400">
+          "Be focused, be fit, stay positive. We will complement your effort with the finest mentors in India. Jai Hind."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== COURSES ============== -->
+<section id="courses" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Our Programs</p>
+      <h2 class="text-3xl sm:text-4xl text-army-800">Courses Designed for Selection</h2>
+      <p class="text-army-600 mt-3 max-w-2xl mx-auto">
+        Integrated coaching for India's most prestigious defence examinations — taught by experienced faculty and retired armed forces officers.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Course cards -->
+      <a href="https://shielddefenceacademy.com/best-nda-coaching/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
+        <img src="images/nda_230428092207.png" alt="NDA coaching" class="h-20 mx-auto" />
+        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">NDA / NA</h3>
+        <p class="text-sm text-army-600 mt-1">National Defence Academy</p>
+      </a>
+
+      <a href="https://shielddefenceacademy.com/best-nda-foundation-coaching-in-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
+        <img src="images/nda_230428092207.png" alt="NDA Foundation" class="h-20 mx-auto" />
+        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">NDA Foundation</h3>
+        <p class="text-sm text-army-600 mt-1">NDA + 9th / 10th / 11th / 12th Schooling</p>
+      </a>
+
+      <a href="https://shielddefenceacademy.com/ssb-coaching-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
+        <img src="images/comlogo01.jpg" alt="SSB coaching" class="h-20 mx-auto rounded" />
+        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">SSB</h3>
+        <p class="text-sm text-army-600 mt-1">Army • Navy • Air Force Interview</p>
+      </a>
+
+      <a href="https://shielddefenceacademy.com/best-cds-coaching-in-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
+        <img src="images/cdsnewkl0go.webp" alt="CDS coaching" class="h-20 mx-auto" />
+        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">CDS</h3>
+        <p class="text-sm text-army-600 mt-1">Combined Defence Services</p>
+      </a>
+
+      <a href="https://shielddefenceacademy.com/afcat-coaching-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
+        <img src="images/af.png" alt="AFCAT coaching" class="h-20 mx-auto" />
+        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">AFCAT</h3>
+        <p class="text-sm text-army-600 mt-1">Air Force Common Admission Test</p>
+      </a>
+
+      <a href="https://shielddefenceacademy.com/best-sainik-school-entrance-coaching-in-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
+        <img src="images/nda_230428092207.png" alt="Sainik School coaching" class="h-20 mx-auto" />
+        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">Sainik School</h3>
+        <p class="text-sm text-army-600 mt-1">Entrance Exam Coaching</p>
+      </a>
+
+      <a href="https://shielddefenceacademy.com/airforce-xy-group-coaching-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
+        <img src="images/af.png" alt="Air Force X/Y group" class="h-20 mx-auto" />
+        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">Air Force</h3>
+        <p class="text-sm text-army-600 mt-1">X / Y Group</p>
+      </a>
+
+      <a href="https://shielddefenceacademy.com/navy-aassr-coaching-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
+        <img src="images/navy.png" alt="Navy coaching" class="h-20 mx-auto" />
+        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">Navy</h3>
+        <p class="text-sm text-army-600 mt-1">AA / SSR</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FACULTY ============== -->
+<section id="faculty" class="py-16 bg-army-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Vision of Our SSB Mentors</p>
+      <h2 class="text-3xl sm:text-4xl text-army-800">Elite Panel of Ex-Board Members &amp; Retired Defence Officers</h2>
+      <p class="text-army-600 mt-3 max-w-3xl mx-auto">
+        Learn from officers who have served on the SSB selection board — Psychologists, GTOs and Interviewing Officers — and now mentor the next generation of leaders.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
+        <img src="images/cdr-mukesh-tivari.webp" alt="Wing Cdr Mukesh Tiwari" class="w-full h-64 object-cover object-top" />
+        <div class="p-4 text-center">
+          <h3 class="text-lg text-army-800">Wing Cdr Mukesh Tiwari</h3>
+          <p class="text-sm text-army-600">Ex. Psychologist<br/>AFSB Dehradun, Varanasi</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
+        <img src="images/Ashok-Pathak-sir-1-1.png" alt="Col Ashok Pathak" class="w-full h-64 object-cover object-top" />
+        <div class="p-4 text-center">
+          <h3 class="text-lg text-army-800">Col Ashok Pathak</h3>
+          <p class="text-sm text-army-600">Ex. GTO<br/>Allahabad Board</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
+        <img src="images/cdr-Dr-Smeer-Mishra.jpg" alt="Col (Dr) Sameer Mishra" class="w-full h-64 object-cover object-top" />
+        <div class="p-4 text-center">
+          <h3 class="text-lg text-army-800">Col (Dr) Sameer Mishra (Retd)</h3>
+          <p class="text-sm text-army-600">Chief SSB Mentor</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
+        <img src="images/Col-Atul-kashyap.jpg" alt="Col Atul Kashyap" class="w-full h-64 object-cover object-top" />
+        <div class="p-4 text-center">
+          <h3 class="text-lg text-army-800">Col Atul Kashyap</h3>
+          <p class="text-sm text-army-600">Ex. GTO<br/>Bhopal &amp; Allahabad Board</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
+        <img src="images/Aviraj-singh-sir.jpg" alt="Aviraj Singh Sir" class="w-full h-64 object-cover object-top" />
+        <div class="p-4 text-center">
+          <h3 class="text-lg text-army-800">Aviraj Singh Sir</h3>
+          <p class="text-sm text-army-600">SSB Mentor (Ex. NDA)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== WHY CHOOSE US (FEATURES) ============== -->
+<section id="features" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Why Choose Shield Defence Academy</p>
+      <h2 class="text-3xl sm:text-4xl text-army-800">Your Success is Our Guarantee</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 16 features -->
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Free-Library.webp" alt="Free Library" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Free Library Facility</h3>
+          <p class="text-sm text-army-600 mt-1">A quiet, focused space for self-study and revision with all the resources you need.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Books-Bags-Notes.webp" alt="Books, Bag and Study Material" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Books, Bag &amp; Study Material</h3>
+          <p class="text-sm text-army-600 mt-1">A complete kit aligned with the latest NDA / CDS / AFCAT exam pattern.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/PYQ.webp" alt="PYQ Last 15 Years" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">PYQ — Last 15 Years</h3>
+          <p class="text-sm text-army-600 mt-1">Previous-year question papers for speed, accuracy and pattern mastery.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Experienced-Faculty.webp" alt="Experienced Faculty" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Experienced Faculty</h3>
+          <p class="text-sm text-army-600 mt-1">Concept-first teaching with patient, supportive mentors.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/SSB-Training.webp" alt="Free SSB Training" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Free SSB Training</h3>
+          <p class="text-sm text-army-600 mt-1">Screening, Psychology, GTO and Interview — until you are recommended.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/SSB-Pannel.webp" alt="Experienced SSB Panel" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Experienced SSB Panel</h3>
+          <p class="text-sm text-army-600 mt-1">Mentorship from retired SSB board officers with real-board experience.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Doubt-Classes.webp" alt="Doubt Removal Classes" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Doubt Removal Classes</h3>
+          <p class="text-sm text-army-600 mt-1">Dedicated sessions until every concept is crystal clear.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Backlok.webp" alt="Backlog Classes" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Backlog Classes</h3>
+          <p class="text-sm text-army-600 mt-1">Missed a topic? Catch up without falling behind your batch.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Motivational.webp" alt="Motivational Sessions" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Motivational Sessions</h3>
+          <p class="text-sm text-army-600 mt-1">Stay focused with regular pep talks and success stories.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/weekly-mock-test.webp" alt="Weekly Mock Tests" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Weekly Mock Tests</h3>
+          <p class="text-sm text-army-600 mt-1">Exam-pattern practice with detailed performance analysis.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Online-crash-course.webp" alt="Online Crash Course" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Online Crash Course</h3>
+          <p class="text-sm text-army-600 mt-1">Live classes &amp; recorded modules for students across India.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Hostel.webp" alt="Hostel Accommodation" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Hostel Accommodation</h3>
+          <p class="text-sm text-army-600 mt-1">Safe, hygienic and disciplined residential facility for outstation aspirants.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Co-curricular.webp" alt="Co-curricular Activities" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Co-curricular Activities</h3>
+          <p class="text-sm text-army-600 mt-1">Sports, debates and group tasks that build officer-like qualities.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Smart-classroom.webp" alt="Smart Classroom" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Smart Classroom</h3>
+          <p class="text-sm text-army-600 mt-1">Audio-visual learning that makes complex concepts memorable.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Help-Desk.webp" alt="Helping Desk" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Helping Desk</h3>
+          <p class="text-sm text-army-600 mt-1">Always-on support — academic or personal, every query matters.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Career-Counselling.webp" alt="Career Counselling" class="w-full h-44 object-cover" />
+        <div class="p-5">
+          <h3 class="text-lg text-army-800">Career Counselling</h3>
+          <p class="text-sm text-army-600 mt-1">Personal attention for students who need an extra hand to catch up.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RESULTS / PARADE OF GLORY ============== -->
+<section id="results" class="py-16 bg-army-900 text-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-gold-400 font-semibold uppercase tracking-widest text-sm">Parade of Glory</p>
+      <h2 class="text-3xl sm:text-4xl">Our Recent Results — The Gems of Shield</h2>
+      <p class="text-army-100 mt-3 max-w-2xl mx-auto">
+        Every photograph below tells a story of grit, sacrifice and a salute earned. Meet our cadets and Passing Out Parade officers.
+      </p>
+    </div>
+
+    <h3 class="text-2xl text-gold-400 mb-4">Gems of Shield</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 mb-12">
+      <img src="images/Blog1.webp" alt="Gem of Shield 1" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Blog2.webp" alt="Gem of Shield 2" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Blog3.webp" alt="Gem of Shield 3" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Blog4.webp" alt="Gem of Shield 4" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Blog5.webp" alt="Gem of Shield 5" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Blog6.webp" alt="Gem of Shield 6" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Blog7.webp" alt="Gem of Shield 7" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Blog8.webp" alt="Gem of Shield 8" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Backup_of_Blog9.webp" alt="Gem of Shield 9" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+    </div>
+
+    <h3 class="text-2xl text-gold-400 mb-4">Passing Out Parade</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <img src="images/Parade11.webp" alt="POP Col Sir" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Ayush.webp" alt="POP Ayush" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Abhay.webp" alt="POP Abhay" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Yash.webp" alt="POP Yash" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Lakshay-webp.webp" alt="POP Lakshay" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade-1.webp" alt="POP Krishna Singh" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade2.webp" alt="POP Vaibhav Raj" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade3.webp" alt="POP Aditya Shukla" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade4.webp" alt="POP Rishabh Singh" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade5.webp" alt="POP Nirbhay Pandey" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade6.webp" alt="POP Siddhant Singh Sengar" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade7.webp" alt="POP Aniket Shukla" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade8.webp" alt="POP Abhishek Singh" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade9.webp" alt="POP Ashutos Raj Patil" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+      <img src="images/Parade10.webp" alt="POP Supriya Tiwari" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="https://shielddefenceacademy.com/our-results/" target="_blank" rel="noopener" class="inline-block bg-gold-500 hover:bg-gold-600 text-white font-semibold px-6 py-3 rounded">
+        See All Results <i class="fa-solid fa-arrow-right ml-1"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TESTIMONIALS ============== -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Student Voices</p>
+      <h2 class="text-3xl sm:text-4xl text-army-800">Testimonials from Recommended Candidates</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="aspect-video">
+        <iframe class="w-full h-full rounded-xl shadow-card" src="https://www.youtube.com/embed/GVfr4n0tAO4" title="Shield student testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="aspect-video">
+        <iframe class="w-full h-full rounded-xl shadow-card" src="https://www.youtube.com/embed/rzVXpDdbS4A" title="Shield student testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="aspect-video">
+        <iframe class="w-full h-full rounded-xl shadow-card" src="https://www.youtube.com/embed/t1yKxcW2Bug" title="Shield student testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section id="faq" class="py-16 bg-army-50">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Frequently Asked Questions</p>
+      <h2 class="text-3xl sm:text-4xl text-army-800">Everything You Want to Know</h2>
+    </div>
+
+    <div class="space-y-3">
+      <details class="bg-white rounded-lg border border-army-100 p-5 group">
+        <summary class="flex justify-between items-center font-semibold text-army-800">
+          Which academy is best for defence preparation in Lucknow?
+          <span class="accordion-icon text-gold-500 text-xl font-bold">+</span>
+        </summary>
+        <p class="mt-3 text-army-700">Shield Defence Academy is widely regarded among the top choices for NDA, CDS, AFCAT and SSB preparation in Lucknow, with experienced faculty, retired SSB board members and a strong consistent selection record.</p>
+      </details>
+
+      <details class="bg-white rounded-lg border border-army-100 p-5 group">
+        <summary class="flex justify-between items-center font-semibold text-army-800">
+          Does Shield Defence Academy offer schooling along with NDA coaching?
+          <span class="accordion-icon text-gold-500 text-xl font-bold">+</span>
+        </summary>
+        <p class="mt-3 text-army-700">Yes. Through the residential NDA Foundation programme, students from Classes 9 to 12 can pursue regular schooling along with structured NDA preparation in a single disciplined campus.</p>
+      </details>
+
+      <details class="bg-white rounded-lg border border-army-100 p-5 group">
+        <summary class="flex justify-between items-center font-semibold text-army-800">
+          Which courses are offered at Shield Defence Academy?
+          <span class="accordion-icon text-gold-500 text-xl font-bold">+</span>
+        </summary>
+        <p class="mt-3 text-army-700">Coaching is offered for NDA / NA, NDA Foundation (with schooling), CDS, AFCAT, SSB Interview, Sainik School entrance, Air Force X / Y group and Navy AA / SSR — with offline, online and hybrid modes.</p>
+      </details>
+
+      <details class="bg-white rounded-lg border border-army-100 p-5 group">
+        <summary class="flex justify-between items-center font-semibold text-army-800">
+          Is hostel accommodation available?
+          <span class="accordion-icon text-gold-500 text-xl font-bold">+</span>
+        </summary>
+        <p class="mt-3 text-army-700">Yes. The residential campus provides safe rooms, hygienic food, disciplined routines and academic supervision — ideal for outstation aspirants.</p>
+      </details>
+
+      <details class="bg-white rounded-lg border border-army-100 p-5 group">
+        <summary class="flex justify-between items-center font-semibold text-army-800">
+          What are the NDA coaching fees?
+          <span class="accordion-icon text-gold-500 text-xl font-bold">+</span>
+        </summary>
+        <p class="mt-3 text-army-700">Fees are structured, transparent and affordable, covering classroom sessions, study material, mock tests and SSB training. Flexible payment options and hostel packages are available — please connect with the admissions team for the latest rates.</p>
+      </details>
+
+      <details class="bg-white rounded-lg border border-army-100 p-5 group">
+        <summary class="flex justify-between items-center font-semibold text-army-800">
+          Where is the academy located?
+          <span class="accordion-icon text-gold-500 text-xl font-bold">+</span>
+        </summary>
+        <p class="mt-3 text-army-700">Head Office: Beg Tower, Ayodhya Road, Shakti Nagar, Indira Nagar, Lucknow — near Lekhraj Metro Station. Branch Office: Sita Arcade (2nd Floor), opposite Awadh Hospital, Alambagh, Lucknow. Residential Campus: Faizabad Road, Anora Kala, Lucknow.</p>
+      </details>
+
+      <details class="bg-white rounded-lg border border-army-100 p-5 group">
+        <summary class="flex justify-between items-center font-semibold text-army-800">
+          What is the admission procedure?
+          <span class="accordion-icon text-gold-500 text-xl font-bold">+</span>
+        </summary>
+        <p class="mt-3 text-army-700">You can apply online or visit any of the campuses. Admission includes form submission, counselling and course selection. After enrolment, students are given a structured study plan, study material and access to all preparation resources.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CONTACT / FOOTER ============== -->
+<section id="contact" class="bg-army-800 text-army-50 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Branch cards -->
+    <div class="grid lg:grid-cols-3 gap-6 mb-12">
+      <div class="bg-army-900 rounded-xl p-6">
+        <div class="inline-flex items-center gap-2 bg-gold-500/15 text-gold-400 px-3 py-1 rounded-full text-xs uppercase tracking-widest font-semibold">
+          <i class="fa-solid fa-location-dot"></i> Head Office
+        </div>
+        <h3 class="mt-4 text-xl text-white">Indira Nagar Branch</h3>
+        <p class="mt-2 text-army-100 text-sm">Beg Tower, Ayodhya Road, Shakti Nagar, Indira Nagar, Lucknow, Uttar Pradesh 226016</p>
+        <a href="tel:+919454551848" class="mt-3 inline-flex items-center text-gold-400 hover:text-gold-500"><i class="fa-solid fa-phone mr-2"></i>+91 94545 51848</a>
+      </div>
+      <div class="bg-army-900 rounded-xl p-6">
+        <div class="inline-flex items-center gap-2 bg-gold-500/15 text-gold-400 px-3 py-1 rounded-full text-xs uppercase tracking-widest font-semibold">
+          <i class="fa-solid fa-location-dot"></i> Branch Office
+        </div>
+        <h3 class="mt-4 text-xl text-white">Alambagh Branch</h3>
+        <p class="mt-2 text-army-100 text-sm">2nd Floor, Sita Arcade, opp. Awadh Hospital, near Singar Nagar, Alambagh, Lucknow, Uttar Pradesh 226005</p>
+        <a href="tel:+919519441948" class="mt-3 inline-flex items-center text-gold-400 hover:text-gold-500"><i class="fa-solid fa-phone mr-2"></i>+91 95194 41948</a>
+      </div>
+      <div class="bg-army-900 rounded-xl p-6">
+        <div class="inline-flex items-center gap-2 bg-gold-500/15 text-gold-400 px-3 py-1 rounded-full text-xs uppercase tracking-widest font-semibold">
+          <i class="fa-solid fa-location-dot"></i> Residential
+        </div>
+        <h3 class="mt-4 text-xl text-white">Residential Campus</h3>
+        <p class="mt-2 text-army-100 text-sm">Faizabad Road, near Indira Canal, Anora Kala, Lucknow, Uttar Pradesh 227105</p>
+        <a href="tel:+919277268096" class="mt-3 inline-flex items-center text-gold-400 hover:text-gold-500"><i class="fa-solid fa-phone mr-2"></i>+91 92772 68096</a>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="rounded-xl overflow-hidden mb-12">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d455556.3513669782!2d80.97257!3d26.870661!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a2502447becfd%3A0x90fc342ce69d75e1!2sShield%20Defence%20Academy!5e0!3m2!1sen!2sus!4v1702572215568!5m2!1sen!2sus"
+        width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer columns -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-army-700 pt-10">
+      <div>
+        <img src="images/sda-logo.svg" alt="Shield Defence Academy" class="h-14 bg-white/90 rounded p-2" />
+        <p class="mt-4 text-sm text-army-100">Best NDA, CDS, AFCAT, SSB and Sainik School coaching in Lucknow. Building officers since 2015.</p>
+        <div class="mt-4 flex items-center gap-3 text-lg">
+          <a href="https://www.facebook.com/Shielddefenceacademy" target="_blank" rel="noopener" class="hover:text-gold-400"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/shielddefenceacademy/" target="_blank" rel="noopener" class="hover:text-gold-400"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/shield_defence" target="_blank" rel="noopener" class="hover:text-gold-400"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.youtube.com/c/ShieldDefenceAcademy" target="_blank" rel="noopener" class="hover:text-gold-400"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://t.me/shielddefenceacaemy" target="_blank" rel="noopener" class="hover:text-gold-400"><i class="fa-brands fa-telegram"></i></a>
+          <a href="https://api.whatsapp.com/send/?phone=919454551848" target="_blank" rel="noopener" class="hover:text-gold-400"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-lg text-white mb-3">Useful Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://shielddefenceacademy.com/about-us-shield-defence-academy/" class="hover:text-gold-400" target="_blank" rel="noopener">About SDA</a></li>
+          <li><a href="https://shielddefenceacademy.com/our-results/" class="hover:text-gold-400" target="_blank" rel="noopener">Our Results</a></li>
+          <li><a href="https://shielddefenceacademy.com/gallery/" class="hover:text-gold-400" target="_blank" rel="noopener">Our Gallery</a></li>
+          <li><a href="https://shielddefenceacademy.com/blog/" class="hover:text-gold-400" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://shielddefenceacademy.com/contact-us/" class="hover:text-gold-400" target="_blank" rel="noopener">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg text-white mb-3">Our Courses</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://shielddefenceacademy.com/best-nda-coaching/" class="hover:text-gold-400" target="_blank" rel="noopener">NDA / NA</a></li>
+          <li><a href="https://shielddefenceacademy.com/best-nda-foundation-coaching-in-lucknow/" class="hover:text-gold-400" target="_blank" rel="noopener">NDA Foundation</a></li>
+          <li><a href="https://shielddefenceacademy.com/ssb-coaching-lucknow/" class="hover:text-gold-400" target="_blank" rel="noopener">SSB</a></li>
+          <li><a href="https://shielddefenceacademy.com/best-cds-coaching-in-lucknow/" class="hover:text-gold-400" target="_blank" rel="noopener">CDS</a></li>
+          <li><a href="https://shielddefenceacademy.com/afcat-coaching-lucknow/" class="hover:text-gold-400" target="_blank" rel="noopener">AFCAT</a></li>
+          <li><a href="https://shielddefenceacademy.com/airforce-xy-group-coaching-lucknow/" class="hover:text-gold-400" target="_blank" rel="noopener">Air Force X/Y</a></li>
+          <li><a href="https://shielddefenceacademy.com/navy-aassr-coaching-lucknow/" class="hover:text-gold-400" target="_blank" rel="noopener">Navy AA/SSR</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-lg text-white mb-3">Get in Touch</h4>
+        <p class="text-sm"><i class="fa-solid fa-envelope mr-2 text-gold-400"></i> shielddefenceacademy@gmail.com</p>
+        <p class="text-sm mt-2"><i class="fa-solid fa-phone mr-2 text-gold-400"></i> +91 94545 51848</p>
+        <p class="text-sm mt-2"><i class="fa-solid fa-phone mr-2 text-gold-400"></i> +91 95194 41948</p>
+
+        <a href="https://play.google.com/store/apps/details?id=co.thor.qoxti&pcampaignid=web_share" target="_blank" rel="noopener" class="mt-4 inline-block">
+          <img src="images/shield-academy-app-300x89.png" alt="Download Shield Academy App" class="h-12" />
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-army-700 mt-10 pt-6 text-center text-sm text-army-100">
+      &copy; 2016–<span id="yr"></span> Shield Defence Academy. All Rights Reserved.
+    </div>
+  </div>
+</section>
+
+<!-- ============== FLOATING ACTION BUTTONS ============== -->
+<a href="https://api.whatsapp.com/send/?phone=919454551848&text=Jai+Hind%2C+I+have+a+query+about+SDA." target="_blank" rel="noopener" class="float-btn fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl z-50" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+<a href="tel:+919454551848" class="float-btn fixed bottom-6 left-6 bg-gold-500 hover:bg-gold-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl z-50" aria-label="Call">
+  <i class="fa-solid fa-phone"></i>
+</a>
+
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  const btn = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  btn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+  // Close mobile nav on link click
+  mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
+</script>
 
 </body>
 </html>
