@@ -7,7 +7,6 @@
 <meta name="description" content="Shield Defence Academy, Lucknow — Best NDA, CDS, AFCAT, SSB, Sainik School and NDA Foundation coaching in India. Expert ex-defence officers, hostel facility, weekly mock tests." />
 <link rel="icon" href="images/sda-favicon.png" />
 
-<!-- Tailwind via CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -44,12 +43,10 @@
   }
 </script>
 
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
 <style>
@@ -57,7 +54,6 @@
   body { font-family: 'Inter', sans-serif; color: #1f2616; }
   h1,h2,h3,h4 { font-family: 'Oswald', sans-serif; letter-spacing: 0.02em; }
 
-  /* Hero background */
   .hero-bg {
     background-image:
       linear-gradient(rgba(15,25,10,0.65), rgba(15,25,10,0.75)),
@@ -66,7 +62,6 @@
     background-position: center;
   }
 
-  /* Marquee */
   .marquee { overflow: hidden; white-space: nowrap; }
   .marquee-track {
     display: inline-block;
@@ -77,27 +72,22 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* Carousel dots */
   .dot { width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,0.4); }
   .dot.active { background:#d4af37; }
 
-  /* Card hover */
   .feat-card { transition: transform .25s ease, box-shadow .25s ease; }
   .feat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.12); }
 
-  /* Accordion */
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
   details[open] .accordion-icon { transform: rotate(45deg); }
   .accordion-icon { transition: transform .2s ease; }
 
-  /* Floating CTAs */
   .float-btn { box-shadow: 0 6px 18px rgba(0,0,0,.25); }
 </style>
 </head>
 <body class="bg-white">
 
-<!-- ============== TOP BAR ============== -->
 <div class="bg-army-800 text-army-50 text-sm">
   <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
     <div class="flex flex-wrap items-center gap-4">
@@ -116,7 +106,6 @@
   </div>
 </div>
 
-<!-- ============== NAVBAR ============== -->
 <header class="sticky top-0 z-40 bg-white border-b border-army-100 shadow-sm">
   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="#" class="flex items-center">
@@ -154,7 +143,6 @@
   </div>
 </header>
 
-<!-- ============== HERO ============== -->
 <section id="home" class="hero-bg text-white">
   <div class="max-w-7xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
     <div>
@@ -196,7 +184,6 @@
       </div>
     </div>
 
-    <!-- Enquiry Form -->
     <div id="enquire" class="bg-white text-army-900 rounded-xl shadow-2xl p-6 sm:p-8">
       <h3 class="text-2xl font-display text-army-800">Quick Enquiry</h3>
       <p class="text-sm text-army-600">Get a callback from our admissions team.</p>
@@ -241,7 +228,6 @@
     </div>
   </div>
 
-  <!-- Banner strip -->
   <div class="bg-army-900/60 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 py-4 marquee">
       <div class="marquee-track text-army-50/90 text-sm font-semibold uppercase tracking-widest">
@@ -254,7 +240,6 @@
         <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>NAVY AA/SSR</span>
         <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>MNS</span>
         <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>SAINIK SCHOOL</span>
-        <!-- duplicate for seamless scroll -->
         <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>NDA &amp; NA</span>
         <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>CDS</span>
         <span class="mx-6"><i class="fa-solid fa-medal text-gold-400 mr-2"></i>SSB</span>
@@ -269,7 +254,6 @@
   </div>
 </section>
 
-<!-- ============== BANNER GALLERY ============== -->
 <section class="bg-army-50 py-12">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-8">
@@ -289,7 +273,6 @@
   </div>
 </section>
 
-<!-- ============== ABOUT ============== -->
 <section id="about" class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
     <div>
@@ -322,7 +305,6 @@
   </div>
 </section>
 
-<!-- ============== DIRECTOR MESSAGE ============== -->
 <section class="py-16 bg-army-800 text-army-50">
   <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-10 items-center">
     <div class="text-center">
@@ -348,7 +330,6 @@
   </div>
 </section>
 
-<!-- ============== COURSES ============== -->
 <section id="courses" class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
@@ -360,7 +341,6 @@
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Course cards -->
       <a href="https://shielddefenceacademy.com/best-nda-coaching/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
         <img src="images/nda_230428092207.png" alt="NDA coaching" class="h-20 mx-auto" />
         <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">NDA / NA</h3>
@@ -412,7 +392,6 @@
   </div>
 </section>
 
-<!-- ============== FACULTY ============== -->
 <section id="faculty" class="py-16 bg-army-50">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
@@ -463,7 +442,6 @@
   </div>
 </section>
 
-<!-- ============== WHY CHOOSE US (FEATURES) ============== -->
 <section id="features" class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
@@ -472,7 +450,6 @@
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- 16 features -->
       <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
         <img src="images/Free-Library.webp" alt="Free Library" class="w-full h-44 object-cover" />
         <div class="p-5">
@@ -589,7 +566,6 @@
   </div>
 </section>
 
-<!-- ============== RESULTS / PARADE OF GLORY ============== -->
 <section id="results" class="py-16 bg-army-900 text-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
@@ -640,7 +616,6 @@
   </div>
 </section>
 
-<!-- ============== TESTIMONIALS ============== -->
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
@@ -661,7 +636,6 @@
   </div>
 </section>
 
-<!-- ============== FAQ ============== -->
 <section id="faq" class="py-16 bg-army-50">
   <div class="max-w-4xl mx-auto px-4">
     <div class="text-center mb-10">
@@ -729,11 +703,9 @@
   </div>
 </section>
 
-<!-- ============== CONTACT / FOOTER ============== -->
 <section id="contact" class="bg-army-800 text-army-50 pt-16 pb-8">
   <div class="max-w-7xl mx-auto px-4">
 
-    <!-- Footer Enquiry Form -->
     <div class="mb-12">
       <div class="text-center mb-6">
         <p class="text-gold-400 font-semibold uppercase tracking-widest text-sm">Quick Connect</p>
@@ -784,7 +756,6 @@
       </div>
     </div>
 
-    <!-- Branch cards -->
     <div class="grid lg:grid-cols-3 gap-6 mb-12">
       <div class="bg-army-900 rounded-xl p-6">
         <div class="inline-flex items-center gap-2 bg-gold-500/15 text-gold-400 px-3 py-1 rounded-full text-xs uppercase tracking-widest font-semibold">
@@ -812,14 +783,12 @@
       </div>
     </div>
 
-    <!-- Map -->
     <div class="rounded-xl overflow-hidden mb-12">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d455556.3513669782!2d80.97257!3d26.870661!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a2502447becfd%3A0x90fc342ce69d75e1!2sShield%20Defence%20Academy!5e0!3m2!1sen!2sus!4v1702572215568!5m2!1sen!2sus"
         width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <!-- Footer columns -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-army-700 pt-10">
       <div>
         <img src="images/sda-logo.svg" alt="Shield Defence Academy" class="h-14 bg-white/90 rounded p-2" />
@@ -876,7 +845,6 @@
   </div>
 </section>
 
-<!-- ============== POPUP ENQUIRY FORM ============== -->
 <div id="popupOverlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
   <div class="relative bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
     <button id="popupClose" class="absolute top-3 right-4 text-army-400 hover:text-army-900 text-3xl font-bold leading-none" aria-label="Close">&times;</button>
@@ -927,7 +895,6 @@
   </div>
 </div>
 
-<!-- ============== FLOATING ACTION BUTTONS ============== -->
 <a href="https://api.whatsapp.com/send/?phone=919454551848&text=Jai+Hind%2C+I+have+a+query+about+SDA." target="_blank" rel="noopener" class="float-btn fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl z-50" aria-label="WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
@@ -936,57 +903,30 @@
 </a>
 
 <script>
-  // ============== Google Sheets + Email Integration ==============
-  // Paste your deployed Google Apps Script Web App URL below.
-  // (See SETUP.md for step-by-step deployment instructions.)
   const SDA_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzWIssFi-hsLwvW5PKZAghUSNUnb9kkNxdU7L8VP_SmFwI8QrEdAQYii1ubmXBMVw7X/exec";
 
   document.querySelectorAll('form.sda-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const status = form.querySelector('.sda-form-status');
-      const btn    = form.querySelector('button[type="submit"]');
-      const data   = new FormData(form);
+      const data = new FormData(form);
       data.append('source',    form.dataset.source || 'Website');
       data.append('timestamp', new Date().toISOString());
       data.append('page',      window.location.href);
 
-      if (status) { status.textContent = 'Sending...'; status.style.color = ''; }
-      if (btn)    { btn.disabled = true; btn.style.opacity = '0.7'; }
+      fetch(SDA_FORM_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).catch(function(){});
 
-      fetch(SDA_FORM_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' })
-        .then(function () {
-          if (status) { status.textContent = 'Thank you! Our team will contact you shortly.'; status.style.color = '#1f8a3a'; }
-          form.reset();
-          if (form.dataset.popup === '1') {
-            setTimeout(function () {
-              const ov = document.getElementById('popupOverlay');
-              if (ov) ov.classList.add('hidden');
-              try { sessionStorage.setItem('popupClosed','1'); } catch(_) {}
-            }, 1500);
-          }
-        })
-        .catch(function () {
-          if (status) { status.textContent = 'Could not send. Please try again or call +91 94545 51848.'; status.style.color = '#c0392b'; }
-        })
-        .finally(function () {
-          if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
-        });
+      window.location.href = 'thankyou.html';
     });
   });
 
-  // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Mobile nav toggle
   const btn = document.getElementById('navToggle');
   const mobileNav = document.getElementById('mobileNav');
   btn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
 
-  // Close mobile nav on link click
   mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.add('hidden')));
 
-  // Popup enquiry form — show after 2s, once per session
   (function () {
     const overlay = document.getElementById('popupOverlay');
     const closeBtn = document.getElementById('popupClose');

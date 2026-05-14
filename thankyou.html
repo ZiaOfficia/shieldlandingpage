@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You — Shield Defence Academy</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="images/sda-favicon.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          army: {
+            50:  '#f4f6f1',
+            100: '#e3e9d7',
+            200: '#c6d2af',
+            300: '#a3b682',
+            400: '#83995d',
+            500: '#677d44',
+            600: '#506333',
+            700: '#3f4d2a',
+            800: '#2f3a20',
+            900: '#1f2616',
+          },
+          gold: {
+            400: '#d4af37',
+            500: '#c19b1f',
+            600: '#a47f15',
+          }
+        },
+        fontFamily: {
+          display: ['"Oswald"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<style>
+  body { font-family: 'Inter', sans-serif; color: #1f2616; }
+  h1,h2,h3,h4 { font-family: 'Oswald', sans-serif; letter-spacing: 0.02em; }
+
+  @keyframes checkPop {
+    0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+    60%  { transform: scale(1.15) rotate(5deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .check-icon  { animation: checkPop 0.6s cubic-bezier(.36,.07,.19,.97) both; }
+  .fade-up-1   { animation: fadeUp 0.5s ease 0.5s both; }
+  .fade-up-2   { animation: fadeUp 0.5s ease 0.7s both; }
+  .fade-up-3   { animation: fadeUp 0.5s ease 0.9s both; }
+  .fade-up-4   { animation: fadeUp 0.5s ease 1.1s both; }
+</style>
+</head>
+
+<body class="min-h-screen bg-army-50 flex flex-col">
+
+<header class="bg-army-900 text-white py-3 px-4 flex items-center justify-between">
+  <a href="index.html">
+    <img src="images/sda-logo.svg" alt="Shield Defence Academy" class="h-10" onerror="this.src='images/cdsnewkl0go.webp'" />
+  </a>
+  <a href="index.html" class="text-sm text-army-200 hover:text-white transition-colors">
+    <i class="fa-solid fa-arrow-left mr-1"></i> Back to Home
+  </a>
+</header>
+
+<main class="flex-1 flex items-center justify-center px-4 py-16">
+  <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full text-center px-8 py-12">
+
+    <div class="check-icon mx-auto mb-6 flex items-center justify-center w-24 h-24 rounded-full bg-green-100">
+      <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="2.5"
+           viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6L9 17l-5-5" />
+      </svg>
+    </div>
+
+    <h1 class="fade-up-1 text-3xl sm:text-4xl text-army-800 mb-3">Thank You!</h1>
+
+    <p class="fade-up-2 text-army-600 text-base sm:text-lg mb-6">
+      Your enquiry has been received successfully.<br>
+      Our counsellor will contact you within <strong>24 hours</strong>.
+    </p>
+
+    <div class="fade-up-3 bg-army-50 rounded-xl p-5 text-left mb-8 space-y-3">
+      <p class="text-army-800 font-semibold text-sm uppercase tracking-wide mb-2">What happens next?</p>
+      <div class="flex items-start gap-3">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full bg-army-700 text-white flex items-center justify-center text-xs font-bold">1</span>
+        <p class="text-army-700 text-sm">Our counsellor reviews your details and prepares the best course options for you.</p>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full bg-army-700 text-white flex items-center justify-center text-xs font-bold">2</span>
+        <p class="text-army-700 text-sm">You receive a call or WhatsApp message with personalised guidance.</p>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="flex-shrink-0 w-7 h-7 rounded-full bg-army-700 text-white flex items-center justify-center text-xs font-bold">3</span>
+        <p class="text-army-700 text-sm">Visit our campus or join online — start your defence journey!</p>
+      </div>
+    </div>
+
+    <div class="fade-up-4 flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="index.html"
+         class="inline-flex items-center justify-center gap-2 bg-army-700 hover:bg-army-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+        <i class="fa-solid fa-house"></i> Back to Home
+      </a>
+      <a href="tel:+919454551848"
+         class="inline-flex items-center justify-center gap-2 border-2 border-army-700 text-army-700 hover:bg-army-700 hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+        <i class="fa-solid fa-phone"></i> Call Us Now
+      </a>
+    </div>
+
+    <p class="fade-up-4 mt-6 text-army-500 text-sm">
+      Or message us on
+      <a href="https://wa.me/919454551848" target="_blank" rel="noopener"
+         class="text-green-600 font-semibold hover:underline">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+    </p>
+
+  </div>
+</main>
+
+<footer class="bg-army-900 text-army-300 text-center text-xs py-4">
+  &copy; <span id="yr"></span> Shield Defence Academy, Lucknow. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
