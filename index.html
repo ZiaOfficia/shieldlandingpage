@@ -200,24 +200,24 @@
     <div id="enquire" class="bg-white text-army-900 rounded-xl shadow-2xl p-6 sm:p-8">
       <h3 class="text-2xl font-display text-army-800">Quick Enquiry</h3>
       <p class="text-sm text-army-600">Get a callback from our admissions team.</p>
-      <form class="mt-5 space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.'); this.reset();">
+      <form class="mt-5 space-y-4 sda-form" data-source="Hero Enquiry">
         <div>
           <label class="block text-sm font-semibold mb-1">Full Name <span class="text-red-500">*</span></label>
-          <input required type="text" placeholder="Your name" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+          <input required type="text" name="name" placeholder="Your name" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-sm font-semibold mb-1">Phone <span class="text-red-500">*</span></label>
-            <input required type="tel" placeholder="10-digit mobile" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+            <input required type="tel" name="phone" placeholder="10-digit mobile" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
           </div>
           <div>
             <label class="block text-sm font-semibold mb-1">Email <span class="text-red-500">*</span></label>
-            <input required type="email" placeholder="you@email.com" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+            <input required type="email" name="email" placeholder="you@email.com" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
           </div>
         </div>
         <div>
           <label class="block text-sm font-semibold mb-1">Course <span class="text-red-500">*</span></label>
-          <select required class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2 bg-white">
+          <select required name="course" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2 bg-white">
             <option value="">Select Course</option>
             <option>NDA</option>
             <option>NDA Foundation (NDA + Schooling)</option>
@@ -231,11 +231,12 @@
         </div>
         <div>
           <label class="block text-sm font-semibold mb-1">Message <span class="text-army-500 font-normal text-xs">(Optional)</span></label>
-          <textarea rows="3" placeholder="Tell us about your goal..." class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2"></textarea>
+          <textarea rows="3" name="message" placeholder="Tell us about your goal..." class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2"></textarea>
         </div>
         <button type="submit" class="w-full bg-army-700 hover:bg-army-800 text-white font-semibold py-3 rounded">
           Send Enquiry <i class="fa-solid fa-arrow-right ml-1"></i>
         </button>
+        <p class="sda-form-status text-sm text-center mt-2"></p>
       </form>
     </div>
   </div>
@@ -740,25 +741,25 @@
         <p class="text-army-100 text-sm mt-1">Fields marked <span class="text-red-400 font-bold">*</span> are mandatory</p>
       </div>
       <div class="max-w-2xl mx-auto bg-army-900 rounded-xl p-6 sm:p-8">
-        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.'); this.reset();">
+        <form class="space-y-4 sda-form" data-source="Footer Enquiry">
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-semibold mb-1 text-army-100">Full Name <span class="text-red-400">*</span></label>
-              <input required type="text" placeholder="Your full name" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
+              <input required type="text" name="name" placeholder="Your full name" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
             </div>
             <div>
               <label class="block text-sm font-semibold mb-1 text-army-100">Phone <span class="text-red-400">*</span></label>
-              <input required type="tel" placeholder="10-digit mobile" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
+              <input required type="tel" name="phone" placeholder="10-digit mobile" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
             </div>
           </div>
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-semibold mb-1 text-army-100">Email <span class="text-red-400">*</span></label>
-              <input required type="email" placeholder="you@email.com" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
+              <input required type="email" name="email" placeholder="you@email.com" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
             </div>
             <div>
               <label class="block text-sm font-semibold mb-1 text-army-100">Course <span class="text-red-400">*</span></label>
-              <select required class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2">
+              <select required name="course" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2">
                 <option value="">Select Course</option>
                 <option>NDA</option>
                 <option>NDA Foundation (NDA + Schooling)</option>
@@ -773,11 +774,12 @@
           </div>
           <div>
             <label class="block text-sm font-semibold mb-1 text-army-100">Message <span class="text-army-400 font-normal text-xs">(Optional)</span></label>
-            <textarea rows="3" placeholder="Tell us about your goal..." class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400"></textarea>
+            <textarea rows="3" name="message" placeholder="Tell us about your goal..." class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400"></textarea>
           </div>
           <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-white font-semibold py-3 rounded">
             Send Enquiry <i class="fa-solid fa-arrow-right ml-1"></i>
           </button>
+          <p class="sda-form-status text-sm text-center mt-2 text-army-100"></p>
         </form>
       </div>
     </div>
@@ -886,22 +888,22 @@
     <h3 class="text-2xl font-display text-army-800 mt-2">Get a Free Callback</h3>
     <p class="text-sm text-army-600 mb-1">Fill in your details and our admissions team will reach you shortly.</p>
     <p class="text-xs text-army-500 mb-4">Fields marked <span class="text-red-500 font-bold">*</span> are mandatory</p>
-    <form id="popupForm" class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.'); document.getElementById('popupOverlay').classList.add('hidden'); sessionStorage.setItem('popupClosed','1'); this.reset();">
+    <form id="popupForm" class="space-y-4 sda-form" data-source="Popup Enquiry" data-popup="1">
       <div>
         <label class="block text-sm font-semibold mb-1 text-army-800">Full Name <span class="text-red-500">*</span></label>
-        <input required type="text" placeholder="Your full name" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+        <input required type="text" name="name" placeholder="Your full name" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1 text-army-800">Phone <span class="text-red-500">*</span></label>
-        <input required type="tel" placeholder="10-digit mobile number" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+        <input required type="tel" name="phone" placeholder="10-digit mobile number" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1 text-army-800">Email <span class="text-red-500">*</span></label>
-        <input required type="email" placeholder="you@email.com" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+        <input required type="email" name="email" placeholder="you@email.com" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1 text-army-800">Course <span class="text-red-500">*</span></label>
-        <select required class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2 bg-white">
+        <select required name="course" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2 bg-white">
           <option value="">Select Course</option>
           <option>NDA</option>
           <option>NDA Foundation (NDA + Schooling)</option>
@@ -915,11 +917,12 @@
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1 text-army-800">Message <span class="text-army-500 font-normal text-xs">(Optional)</span></label>
-        <textarea rows="3" placeholder="Tell us about your goal..." class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2"></textarea>
+        <textarea rows="3" name="message" placeholder="Tell us about your goal..." class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2"></textarea>
       </div>
       <button type="submit" class="w-full bg-army-700 hover:bg-army-800 text-white font-semibold py-3 rounded">
         Send Enquiry <i class="fa-solid fa-arrow-right ml-1"></i>
       </button>
+      <p class="sda-form-status text-sm text-center mt-2"></p>
     </form>
   </div>
 </div>
@@ -933,6 +936,45 @@
 </a>
 
 <script>
+  // ============== Google Sheets + Email Integration ==============
+  // Paste your deployed Google Apps Script Web App URL below.
+  // (See SETUP.md for step-by-step deployment instructions.)
+  const SDA_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzWIssFi-hsLwvW5PKZAghUSNUnb9kkNxdU7L8VP_SmFwI8QrEdAQYii1ubmXBMVw7X/exec";
+
+  document.querySelectorAll('form.sda-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const status = form.querySelector('.sda-form-status');
+      const btn    = form.querySelector('button[type="submit"]');
+      const data   = new FormData(form);
+      data.append('source',    form.dataset.source || 'Website');
+      data.append('timestamp', new Date().toISOString());
+      data.append('page',      window.location.href);
+
+      if (status) { status.textContent = 'Sending...'; status.style.color = ''; }
+      if (btn)    { btn.disabled = true; btn.style.opacity = '0.7'; }
+
+      fetch(SDA_FORM_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' })
+        .then(function () {
+          if (status) { status.textContent = 'Thank you! Our team will contact you shortly.'; status.style.color = '#1f8a3a'; }
+          form.reset();
+          if (form.dataset.popup === '1') {
+            setTimeout(function () {
+              const ov = document.getElementById('popupOverlay');
+              if (ov) ov.classList.add('hidden');
+              try { sessionStorage.setItem('popupClosed','1'); } catch(_) {}
+            }, 1500);
+          }
+        })
+        .catch(function () {
+          if (status) { status.textContent = 'Could not send. Please try again or call +91 94545 51848.'; status.style.color = '#c0392b'; }
+        })
+        .finally(function () {
+          if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+        });
+    });
+  });
+
   // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
