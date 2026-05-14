@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shield Defence Academy — Best NDA Coaching in Lucknow, India</title>
-<meta name="description" content="Shield Defence Academy, Lucknow — Best NDA, CDS, AFCAT, SSB, Sainik School and NDA Foundation coaching in India. Expert ex-defence officers, hostel facility, weekly mock tests." />
+<meta name="description" content="Shield Defence Academy, Lucknow — Best NDA, CDS, AFCAT, SSB, Sainik School and Best NDA Foundation Coaching in Lucknow. Expert ex-defence officers, hostel facility, weekly mock tests." />
 <link rel="icon" href="images/sda-favicon.png" />
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -56,34 +56,55 @@
 
   .hero-bg {
     background-image:
-      linear-gradient(rgba(15,25,10,0.65), rgba(15,25,10,0.75)),
+      linear-gradient(135deg,rgba(15,25,10,.82) 0%,rgba(31,38,22,.70) 100%),
       url('images/Web-Banner.webp');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
   }
 
   .marquee { overflow: hidden; white-space: nowrap; }
-  .marquee-track {
-    display: inline-block;
-    animation: marquee 30s linear infinite;
-  }
+  .marquee-track { display: inline-block; animation: marquee 30s linear infinite; }
   @keyframes marquee {
-    0% { transform: translateX(0); }
+    0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
   .dot { width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,0.4); }
   .dot.active { background:#d4af37; }
 
-  .feat-card { transition: transform .25s ease, box-shadow .25s ease; }
-  .feat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.12); }
+  .feat-card { transition: transform .3s ease, box-shadow .3s ease; }
+  .feat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,.14); }
 
-  details > summary { list-style: none; cursor: pointer; }
-  details > summary::-webkit-details-marker { display: none; }
-  details[open] .accordion-icon { transform: rotate(45deg); }
-  .accordion-icon { transition: transform .2s ease; }
+  .course-card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+  .course-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,.12); border-color: #d4af37 !important; }
 
-  .float-btn { box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  .faculty-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.08); transition:transform .3s ease,box-shadow .3s ease; }
+  .faculty-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.16); }
+
+  .gallery-item { overflow:hidden; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,.10); }
+  .gallery-item img { transition:transform .4s ease; display:block; width:100%; }
+  .gallery-item:hover img { transform:scale(1.06); }
+
+  .result-item { overflow:hidden; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,.18); }
+  .result-item img { transition:transform .4s ease; display:block; width:100%; }
+  .result-item:hover img { transform:scale(1.05); }
+
+  .img-gallery  { aspect-ratio:4/3;  width:100%; object-fit:cover; object-position:center; display:block; }
+  .img-portrait { aspect-ratio:3/4;  width:100%; object-fit:cover; object-position:top;    display:block; }
+  .img-feature  { aspect-ratio:16/9; width:100%; object-fit:cover; object-position:center; display:block; }
+  .img-result   { aspect-ratio:4/5;  width:100%; object-fit:cover; object-position:top;    display:block; }
+
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  details[open] .accordion-icon { transform:rotate(45deg); }
+  .accordion-icon { transition:transform .2s ease; }
+
+  .float-btn { box-shadow:0 6px 20px rgba(0,0,0,.30); }
+  .gold-bar { display:block; width:48px; height:3px; background:#d4af37; border-radius:2px; margin:10px auto 0; }
+  .gold-bar-l { margin:10px 0 0; }
+
+  input,select,textarea { transition:border-color .2s,box-shadow .2s; }
+  input:focus,select:focus,textarea:focus { box-shadow:0 0 0 3px rgba(193,155,31,.18); }
 </style>
 </head>
 <body class="bg-white">
@@ -149,37 +170,40 @@
       <div class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/40 text-gold-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest">
         <i class="fa-solid fa-shield-halved"></i> Jai Hind • Est. 2015
       </div>
-      <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-        Best <span class="text-gold-400">NDA Coaching</span><br/>
-        in Lucknow, India
+      <h1 class="mt-4 text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+        Best <span class="text-gold-400">NDA Coaching</span><br class="hidden sm:block"/>
+        <span class="sm:hidden"> </span>in Lucknow, India
       </h1>
-      <p class="mt-5 text-lg text-army-50/90 max-w-xl">
+      <p class="mt-3 text-base sm:text-lg text-army-50/90 max-w-xl hidden sm:block">
         Discipline. Dedication. Determination. Train at Shield Defence Academy — where defence aspirants are shaped into officers under the mentorship of retired SSB board members, GTOs and psychologists.
       </p>
-      <div class="mt-7 flex flex-wrap gap-3">
-        <a href="#enquire" class="bg-gold-500 hover:bg-gold-600 text-white font-semibold px-6 py-3 rounded">
+      <p class="mt-3 text-sm text-army-50/90 sm:hidden">
+        Train under retired SSB board members &amp; ex-officers. Lucknow's most trusted defence academy since 2015.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-2 sm:gap-3">
+        <a href="#enquire" class="bg-gold-500 hover:bg-gold-600 text-white font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base">
           <i class="fa-solid fa-pen-to-square mr-2"></i>Free Enquiry
         </a>
-        <a href="tel:+919454551848" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded">
-          <i class="fa-solid fa-phone mr-2"></i>+91 94545 51848
+        <a href="tel:+919454551848" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base">
+          <i class="fa-solid fa-phone mr-2"></i>Call Now
         </a>
-        <a href="https://api.whatsapp.com/send/?phone=919454551848&text=Jai+Hind%2C+I+have+a+query+about+SDA." target="_blank" rel="noopener" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded">
+        <a href="https://api.whatsapp.com/send/?phone=919454551848&text=Jai+Hind%2C+I+have+a+query+about+SDA." target="_blank" rel="noopener" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base">
           <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
         </a>
       </div>
 
-      <div class="mt-10 grid grid-cols-3 gap-4 max-w-lg">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-gold-400">150+</div>
-          <div class="text-xs uppercase tracking-wider text-army-50/80">Aspirants / Year</div>
+      <div class="mt-8 grid grid-cols-3 gap-3 max-w-sm sm:max-w-lg">
+        <div class="bg-white/10 rounded-xl p-3 sm:p-4 text-center">
+          <div class="text-2xl sm:text-3xl font-bold text-gold-400">150+</div>
+          <div class="text-xs uppercase tracking-wider text-army-50/80 mt-1">Yearly</div>
         </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-gold-400">10+</div>
-          <div class="text-xs uppercase tracking-wider text-army-50/80">Years of Legacy</div>
+        <div class="bg-white/10 rounded-xl p-3 sm:p-4 text-center">
+          <div class="text-2xl sm:text-3xl font-bold text-gold-400">10+</div>
+          <div class="text-xs uppercase tracking-wider text-army-50/80 mt-1">Years</div>
         </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-gold-400">3</div>
-          <div class="text-xs uppercase tracking-wider text-army-50/80">Lucknow Campuses</div>
+        <div class="bg-white/10 rounded-xl p-3 sm:p-4 text-center">
+          <div class="text-2xl sm:text-3xl font-bold text-gold-400">3</div>
+          <div class="text-xs uppercase tracking-wider text-army-50/80 mt-1">Campuses</div>
         </div>
       </div>
     </div>
@@ -254,75 +278,80 @@
   </div>
 </section>
 
-<section class="bg-army-50 py-12">
+<section class="bg-army-50 py-12 sm:py-16">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-8">
       <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Glimpses</p>
-      <h2 class="text-3xl sm:text-4xl text-army-800">Shield Defence Academy in Action</h2>
+      <h2 class="text-2xl sm:text-4xl text-army-800">Shield Defence Academy in Action</h2>
+      <span class="gold-bar"></span>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <img src="images/banner07.webp" alt="Best defence academy in Lucknow" class="rounded-lg shadow-card w-full h-40 object-cover" />
-      <img src="images/New-Banner-copy-1.webp" alt="NDA SRMPS banner" class="rounded-lg shadow-card w-full h-40 object-cover" />
-      <img src="images/1-2.webp" alt="Shield success board" class="rounded-lg shadow-card w-full h-40 object-cover" />
-      <img src="images/Pop3.webp" alt="POP moments with NDA officers" class="rounded-lg shadow-card w-full h-40 object-cover" />
-      <img src="images/Pop2.webp" alt="Director with NDA officers" class="rounded-lg shadow-card w-full h-40 object-cover" />
-      <img src="images/Backup_of_Backup_of_pop-banner1.webp" alt="POP banner" class="rounded-lg shadow-card w-full h-40 object-cover" />
-      <img src="images/Banner-5-1.webp" alt="Defence training banner" class="rounded-lg shadow-card w-full h-40 object-cover" />
-      <img src="images/Banner-6.webp" alt="Best defence academy" class="rounded-lg shadow-card w-full h-40 object-cover" />
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      <div class="gallery-item"><img src="images/banner07.webp" alt="Best defence academy in Lucknow" class="img-gallery" /></div>
+      <div class="gallery-item"><img src="images/New-Banner-copy-1.webp" alt="NDA SRMPS banner" class="img-gallery" /></div>
+      <div class="gallery-item"><img src="images/1-2.webp" alt="Shield success board" class="img-gallery" /></div>
+      <div class="gallery-item"><img src="images/Pop3.webp" alt="POP moments with NDA officers" class="img-gallery" /></div>
+      <div class="gallery-item"><img src="images/Pop2.webp" alt="Director with NDA officers" class="img-gallery" /></div>
+      <div class="gallery-item"><img src="images/Backup_of_Backup_of_pop-banner1.webp" alt="POP banner" class="img-gallery" /></div>
+      <div class="gallery-item"><img src="images/Banner-5-1.webp" alt="Defence training banner" class="img-gallery" /></div>
+      <div class="gallery-item"><img src="images/Banner-6.webp" alt="Best defence academy" class="img-gallery" /></div>
     </div>
   </div>
 </section>
 
-<section id="about" class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+<section id="about" class="py-14 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
     <div>
-      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Welcome to Shield</p>
-      <h2 class="text-3xl sm:text-4xl text-army-800 mt-2">Where Dreams of Wearing the Uniform Turn into Reality</h2>
-      <div class="mt-5 space-y-4 text-army-700 leading-relaxed">
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-xs sm:text-sm">Welcome to Shield</p>
+      <h2 class="text-2xl sm:text-4xl text-army-800 mt-2 leading-tight">Where Dreams of Wearing the Uniform Turn into Reality</h2>
+      <span class="gold-bar-l gold-bar"></span>
+      <div class="mt-5 space-y-4 text-army-700 leading-relaxed text-sm sm:text-base">
         <p>
-          Established in 2015, Shield Defence Academy has emerged as one of Lucknow's most trusted institutions for defence aspirants. Every year, more than 150 candidates step through our doors with a single dream — to wear the uniform — and a strong majority of them go on to be recommended for the Armed Forces.
+          Established in 2015, Shield Defence Academy is Lucknow's most trusted institution for defence aspirants. Every year, 150+ candidates step through our doors and a strong majority go on to be recommended for the Armed Forces.
         </p>
-        <p>
-          Under the leadership of Founder Director <strong>Shivam Shukla</strong>, our training goes far beyond textbooks. We focus on personality development, real exam readiness, and the discipline that defines an officer. Written exam coaching for NDA, CDS, AFCAT, Air Force X/Y, Navy and Sainik School is integrated with end-to-end SSB preparation — Screening, Psychology, GTO and Interview — all under one roof.
+        <p class="hidden sm:block">
+          Under Founder Director <strong>Shivam Shukla</strong>, our training goes far beyond textbooks — personality development, real exam readiness and SSB preparation all under one roof.
         </p>
-        <p>
-          With three campuses across Lucknow, smart classrooms, India's largest GTO ground, hostel facilities and a panel of retired SSB board officers, Shield is engineered for one purpose: to prepare candidates who don't just clear exams, but who are worthy of leading the nation.
+        <p class="hidden sm:block">
+          Three campuses, India's largest GTO ground, smart classrooms and a panel of retired SSB board officers — Shield is built for one purpose: candidates worthy of leading the nation.
         </p>
       </div>
-      <div class="mt-7 flex flex-wrap gap-3">
-        <a href="#courses" class="bg-army-700 hover:bg-army-800 text-white font-semibold px-5 py-3 rounded">Explore Courses</a>
-        <a href="https://shielddefenceacademy.com/about-us-shield-defence-academy/" target="_blank" rel="noopener" class="border-2 border-army-700 text-army-700 hover:bg-army-700 hover:text-white font-semibold px-5 py-3 rounded">Read More</a>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#courses" class="bg-army-700 hover:bg-army-800 text-white font-semibold px-5 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base">Explore Courses</a>
+        <a href="https://shielddefenceacademy.com/about-us-shield-defence-academy/" target="_blank" rel="noopener" class="border-2 border-army-700 text-army-700 hover:bg-army-700 hover:text-white font-semibold px-5 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base transition-colors">Read More</a>
       </div>
     </div>
 
-    <div class="relative">
-      <img src="images/Front-page.webp" alt="Best NDA coaching in Lucknow" class="rounded-xl shadow-2xl w-full" />
-      <div class="absolute -bottom-6 -left-6 bg-gold-500 text-white p-5 rounded-xl shadow-xl hidden md:block">
+    <div class="relative mt-4 lg:mt-0">
+      <img src="images/Front-page.webp" alt="Best NDA coaching in Lucknow" class="rounded-2xl shadow-2xl w-full" style="aspect-ratio:4/3;object-fit:cover;" />
+      <div class="absolute -bottom-5 -left-5 bg-gold-500 text-white p-4 sm:p-5 rounded-xl shadow-xl hidden md:block">
         <div class="text-3xl font-display font-bold">2015</div>
-        <div class="text-xs uppercase tracking-widest">Trusted Since</div>
+        <div class="text-xs uppercase tracking-widest mt-1">Trusted Since</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-16 bg-army-800 text-army-50">
-  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-10 items-center">
+<section class="py-14 sm:py-20 bg-army-800 text-army-50">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
     <div class="text-center">
-      <img src="images/Untitled-design-3.jpg" alt="Shivam Shukla — Founder Director, Shield Defence Academy" class="rounded-xl shadow-2xl mx-auto w-64 h-64 object-cover" />
-      <h3 class="mt-5 text-2xl font-display text-gold-400">Shivam Shukla</h3>
-      <p class="text-army-100">Founder Director</p>
+      <div class="mx-auto w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-gold-500/30">
+        <img src="images/Untitled-design-3.jpg" alt="Shivam Shukla — Founder Director, Shield Defence Academy" class="w-full h-full object-cover object-top" />
+      </div>
+      <h3 class="mt-4 text-xl sm:text-2xl font-display text-gold-400">Shivam Shukla</h3>
+      <p class="text-army-200 text-sm">Founder Director</p>
     </div>
     <div class="lg:col-span-2">
-      <p class="text-gold-400 font-semibold uppercase tracking-widest text-sm">Director's Message</p>
-      <h2 class="text-3xl sm:text-4xl mt-2">We Don't Build Careers. We Build Fighters of Bharat.</h2>
-      <div class="mt-5 space-y-4 text-army-100 leading-relaxed">
-        <p>
+      <p class="text-gold-400 font-semibold uppercase tracking-widest text-xs sm:text-sm">Director's Message</p>
+      <h2 class="text-2xl sm:text-4xl mt-2 leading-tight">We Don't Build Careers.<br class="hidden sm:block"/> We Build Fighters of Bharat.</h2>
+      <span class="gold-bar-l gold-bar mt-3"></span>
+      <div class="mt-5 space-y-4 text-army-100 leading-relaxed text-sm sm:text-base">
+        <p class="hidden sm:block">
           "Every aspirant who walks through our gate is not just a student — they are a torchbearer of the nation's future. At Shield Defence Academy, we don't merely prepare candidates for selection; we shape them into individuals worthy of the rank they will one day earn."
         </p>
-        <p>
-          "I founded SDA after noticing a clear gap — countless young Indians with the potential to lead, but without the right guidance, mentors or environment. Many institutes teach shortcuts. We teach character. Preparation here is built on three pillars: rigorous academics, real SSB exposure, and the discipline that turns aspirants into officers."
+        <p class="hidden sm:block">
+          "I founded SDA after noticing a clear gap — countless young Indians with the potential to lead, but without the right guidance or mentors. Many institutes teach shortcuts. We teach character."
         </p>
-        <p class="italic text-gold-400">
+        <p class="italic text-gold-400 text-base sm:text-lg border-l-4 border-gold-500 pl-4">
           "Be focused, be fit, stay positive. We will complement your effort with the finest mentors in India. Jai Hind."
         </p>
       </div>
@@ -330,282 +359,302 @@
   </div>
 </section>
 
-<section id="courses" class="py-16 bg-white">
+<section id="courses" class="py-14 sm:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
-      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Our Programs</p>
-      <h2 class="text-3xl sm:text-4xl text-army-800">Courses Designed for Selection</h2>
-      <p class="text-army-600 mt-3 max-w-2xl mx-auto">
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-xs sm:text-sm">Our Programs</p>
+      <h2 class="text-2xl sm:text-4xl text-army-800">Courses Designed for Selection</h2>
+      <span class="gold-bar"></span>
+      <p class="text-army-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base hidden sm:block">
         Integrated coaching for India's most prestigious defence examinations — taught by experienced faculty and retired armed forces officers.
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <a href="https://shielddefenceacademy.com/best-nda-coaching/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
-        <img src="images/nda_230428092207.png" alt="NDA coaching" class="h-20 mx-auto" />
-        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">NDA / NA</h3>
-        <p class="text-sm text-army-600 mt-1">National Defence Academy</p>
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <a href="https://shielddefenceacademy.com/best-nda-coaching/" target="_blank" rel="noopener" class="course-card group bg-white border-2 border-army-100 rounded-xl p-4 sm:p-6 text-center flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+          <img src="images/nda_230428092207.png" alt="NDA coaching" class="max-h-full max-w-full object-contain" />
+        </div>
+        <h3 class="mt-3 text-base sm:text-xl text-army-800 group-hover:text-gold-600 font-display">NDA / NA</h3>
+        <p class="text-xs sm:text-sm text-army-600 mt-1">National Defence Academy</p>
       </a>
 
-      <a href="https://shielddefenceacademy.com/best-nda-foundation-coaching-in-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
-        <img src="images/nda_230428092207.png" alt="NDA Foundation" class="h-20 mx-auto" />
-        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">NDA Foundation</h3>
-        <p class="text-sm text-army-600 mt-1">NDA + 9th / 10th / 11th / 12th Schooling</p>
+      <a href="https://shielddefenceacademy.com/best-nda-foundation-coaching-in-lucknow/" target="_blank" rel="noopener" class="course-card group bg-white border-2 border-army-100 rounded-xl p-4 sm:p-6 text-center flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+          <img src="images/nda_230428092207.png" alt="NDA Foundation" class="max-h-full max-w-full object-contain" />
+        </div>
+        <h3 class="mt-3 text-base sm:text-xl text-army-800 group-hover:text-gold-600 font-display">NDA Foundation</h3>
+        <p class="text-xs sm:text-sm text-army-600 mt-1">NDA + Schooling (9–12)</p>
       </a>
 
-      <a href="https://shielddefenceacademy.com/ssb-coaching-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
-        <img src="images/comlogo01.jpg" alt="SSB coaching" class="h-20 mx-auto rounded" />
-        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">SSB</h3>
-        <p class="text-sm text-army-600 mt-1">Army • Navy • Air Force Interview</p>
+      <a href="https://shielddefenceacademy.com/ssb-coaching-lucknow/" target="_blank" rel="noopener" class="course-card group bg-white border-2 border-army-100 rounded-xl p-4 sm:p-6 text-center flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+          <img src="images/comlogo01.jpg" alt="SSB coaching" class="max-h-full max-w-full object-contain rounded" />
+        </div>
+        <h3 class="mt-3 text-base sm:text-xl text-army-800 group-hover:text-gold-600 font-display">SSB</h3>
+        <p class="text-xs sm:text-sm text-army-600 mt-1">Army • Navy • Air Force</p>
       </a>
 
-      <a href="https://shielddefenceacademy.com/best-cds-coaching-in-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
-        <img src="images/cdsnewkl0go.webp" alt="CDS coaching" class="h-20 mx-auto" />
-        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">CDS</h3>
-        <p class="text-sm text-army-600 mt-1">Combined Defence Services</p>
+      <a href="https://shielddefenceacademy.com/best-cds-coaching-in-lucknow/" target="_blank" rel="noopener" class="course-card group bg-white border-2 border-army-100 rounded-xl p-4 sm:p-6 text-center flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+          <img src="images/cdsnewkl0go.webp" alt="CDS coaching" class="max-h-full max-w-full object-contain" />
+        </div>
+        <h3 class="mt-3 text-base sm:text-xl text-army-800 group-hover:text-gold-600 font-display">CDS</h3>
+        <p class="text-xs sm:text-sm text-army-600 mt-1">Combined Defence Services</p>
       </a>
 
-      <a href="https://shielddefenceacademy.com/afcat-coaching-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
-        <img src="images/af.png" alt="AFCAT coaching" class="h-20 mx-auto" />
-        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">AFCAT</h3>
-        <p class="text-sm text-army-600 mt-1">Air Force Common Admission Test</p>
+      <a href="https://shielddefenceacademy.com/afcat-coaching-lucknow/" target="_blank" rel="noopener" class="course-card group bg-white border-2 border-army-100 rounded-xl p-4 sm:p-6 text-center flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+          <img src="images/af.png" alt="AFCAT coaching" class="max-h-full max-w-full object-contain" />
+        </div>
+        <h3 class="mt-3 text-base sm:text-xl text-army-800 group-hover:text-gold-600 font-display">AFCAT</h3>
+        <p class="text-xs sm:text-sm text-army-600 mt-1">Air Force Admission Test</p>
       </a>
 
-      <a href="https://shielddefenceacademy.com/best-sainik-school-entrance-coaching-in-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
-        <img src="images/nda_230428092207.png" alt="Sainik School coaching" class="h-20 mx-auto" />
-        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">Sainik School</h3>
-        <p class="text-sm text-army-600 mt-1">Entrance Exam Coaching</p>
+      <a href="https://shielddefenceacademy.com/best-sainik-school-entrance-coaching-in-lucknow/" target="_blank" rel="noopener" class="course-card group bg-white border-2 border-army-100 rounded-xl p-4 sm:p-6 text-center flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+          <img src="images/nda_230428092207.png" alt="Sainik School coaching" class="max-h-full max-w-full object-contain" />
+        </div>
+        <h3 class="mt-3 text-base sm:text-xl text-army-800 group-hover:text-gold-600 font-display">Sainik School</h3>
+        <p class="text-xs sm:text-sm text-army-600 mt-1">Entrance Exam Coaching</p>
       </a>
 
-      <a href="https://shielddefenceacademy.com/airforce-xy-group-coaching-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
-        <img src="images/af.png" alt="Air Force X/Y group" class="h-20 mx-auto" />
-        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">Air Force</h3>
-        <p class="text-sm text-army-600 mt-1">X / Y Group</p>
+      <a href="https://shielddefenceacademy.com/airforce-xy-group-coaching-lucknow/" target="_blank" rel="noopener" class="course-card group bg-white border-2 border-army-100 rounded-xl p-4 sm:p-6 text-center flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+          <img src="images/af.png" alt="Air Force X/Y group" class="max-h-full max-w-full object-contain" />
+        </div>
+        <h3 class="mt-3 text-base sm:text-xl text-army-800 group-hover:text-gold-600 font-display">Air Force</h3>
+        <p class="text-xs sm:text-sm text-army-600 mt-1">X / Y Group</p>
       </a>
 
-      <a href="https://shielddefenceacademy.com/navy-aassr-coaching-lucknow/" target="_blank" rel="noopener" class="feat-card group bg-army-50 hover:bg-army-100 border border-army-100 rounded-xl p-6 text-center">
-        <img src="images/navy.png" alt="Navy coaching" class="h-20 mx-auto" />
-        <h3 class="mt-4 text-xl text-army-800 group-hover:text-gold-600">Navy</h3>
-        <p class="text-sm text-army-600 mt-1">AA / SSR</p>
+      <a href="https://shielddefenceacademy.com/navy-aassr-coaching-lucknow/" target="_blank" rel="noopener" class="course-card group bg-white border-2 border-army-100 rounded-xl p-4 sm:p-6 text-center flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+          <img src="images/navy.png" alt="Navy coaching" class="max-h-full max-w-full object-contain" />
+        </div>
+        <h3 class="mt-3 text-base sm:text-xl text-army-800 group-hover:text-gold-600 font-display">Navy</h3>
+        <p class="text-xs sm:text-sm text-army-600 mt-1">AA / SSR</p>
       </a>
     </div>
   </div>
 </section>
 
-<section id="faculty" class="py-16 bg-army-50">
+<section id="faculty" class="py-14 sm:py-20 bg-army-50">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
-      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Vision of Our SSB Mentors</p>
-      <h2 class="text-3xl sm:text-4xl text-army-800">Elite Panel of Ex-Board Members &amp; Retired Defence Officers</h2>
-      <p class="text-army-600 mt-3 max-w-3xl mx-auto">
-        Learn from officers who have served on the SSB selection board — Psychologists, GTOs and Interviewing Officers — and now mentor the next generation of leaders.
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-xs sm:text-sm">SSB Mentors</p>
+      <h2 class="text-2xl sm:text-4xl text-army-800">Elite Panel of Ex-Board Members</h2>
+      <span class="gold-bar"></span>
+      <p class="text-army-600 mt-4 max-w-3xl mx-auto text-sm hidden sm:block">
+        Learn from officers who have served on the SSB selection board — Psychologists, GTOs and Interviewing Officers — now mentoring the next generation of leaders.
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
-        <img src="images/cdr-mukesh-tivari.webp" alt="Wing Cdr Mukesh Tiwari" class="w-full h-64 object-cover object-top" />
-        <div class="p-4 text-center">
-          <h3 class="text-lg text-army-800">Wing Cdr Mukesh Tiwari</h3>
-          <p class="text-sm text-army-600">Ex. Psychologist<br/>AFSB Dehradun, Varanasi</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+      <div class="faculty-card">
+        <img src="images/cdr-mukesh-tivari.webp" alt="Wing Cdr Mukesh Tiwari" class="img-portrait" />
+        <div class="p-3 sm:p-4 text-center">
+          <h3 class="text-sm sm:text-base text-army-800 font-semibold leading-tight">Wing Cdr Mukesh Tiwari</h3>
+          <p class="text-xs text-army-600 mt-1">Ex. Psychologist, AFSB</p>
         </div>
       </div>
-      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
-        <img src="images/Ashok-Pathak-sir-1-1.png" alt="Col Ashok Pathak" class="w-full h-64 object-cover object-top" />
-        <div class="p-4 text-center">
-          <h3 class="text-lg text-army-800">Col Ashok Pathak</h3>
-          <p class="text-sm text-army-600">Ex. GTO<br/>Allahabad Board</p>
+      <div class="faculty-card">
+        <img src="images/Ashok-Pathak-sir-1-1.png" alt="Col Ashok Pathak" class="img-portrait" />
+        <div class="p-3 sm:p-4 text-center">
+          <h3 class="text-sm sm:text-base text-army-800 font-semibold leading-tight">Col Ashok Pathak</h3>
+          <p class="text-xs text-army-600 mt-1">Ex. GTO, Allahabad Board</p>
         </div>
       </div>
-      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
-        <img src="images/cdr-Dr-Smeer-Mishra.jpg" alt="Col (Dr) Sameer Mishra" class="w-full h-64 object-cover object-top" />
-        <div class="p-4 text-center">
-          <h3 class="text-lg text-army-800">Col (Dr) Sameer Mishra (Retd)</h3>
-          <p class="text-sm text-army-600">Chief SSB Mentor</p>
+      <div class="faculty-card">
+        <img src="images/cdr-Dr-Smeer-Mishra.jpg" alt="Col (Dr) Sameer Mishra" class="img-portrait" />
+        <div class="p-3 sm:p-4 text-center">
+          <h3 class="text-sm sm:text-base text-army-800 font-semibold leading-tight">Col (Dr) Sameer Mishra</h3>
+          <p class="text-xs text-army-600 mt-1">Chief SSB Mentor</p>
         </div>
       </div>
-      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
-        <img src="images/Col-Atul-kashyap.jpg" alt="Col Atul Kashyap" class="w-full h-64 object-cover object-top" />
-        <div class="p-4 text-center">
-          <h3 class="text-lg text-army-800">Col Atul Kashyap</h3>
-          <p class="text-sm text-army-600">Ex. GTO<br/>Bhopal &amp; Allahabad Board</p>
+      <div class="faculty-card">
+        <img src="images/Col-Atul-kashyap.jpg" alt="Col Atul Kashyap" class="img-portrait" />
+        <div class="p-3 sm:p-4 text-center">
+          <h3 class="text-sm sm:text-base text-army-800 font-semibold leading-tight">Col Atul Kashyap</h3>
+          <p class="text-xs text-army-600 mt-1">Ex. GTO, Bhopal &amp; Allahabad</p>
         </div>
       </div>
-      <div class="bg-white rounded-xl shadow-card overflow-hidden feat-card">
-        <img src="images/Aviraj-singh-sir.jpg" alt="Aviraj Singh Sir" class="w-full h-64 object-cover object-top" />
-        <div class="p-4 text-center">
-          <h3 class="text-lg text-army-800">Aviraj Singh Sir</h3>
-          <p class="text-sm text-army-600">SSB Mentor (Ex. NDA)</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="features" class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="text-center mb-10">
-      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Why Choose Shield Defence Academy</p>
-      <h2 class="text-3xl sm:text-4xl text-army-800">Your Success is Our Guarantee</h2>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Free-Library.webp" alt="Free Library" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Free Library Facility</h3>
-          <p class="text-sm text-army-600 mt-1">A quiet, focused space for self-study and revision with all the resources you need.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Books-Bags-Notes.webp" alt="Books, Bag and Study Material" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Books, Bag &amp; Study Material</h3>
-          <p class="text-sm text-army-600 mt-1">A complete kit aligned with the latest NDA / CDS / AFCAT exam pattern.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/PYQ.webp" alt="PYQ Last 15 Years" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">PYQ — Last 15 Years</h3>
-          <p class="text-sm text-army-600 mt-1">Previous-year question papers for speed, accuracy and pattern mastery.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Experienced-Faculty.webp" alt="Experienced Faculty" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Experienced Faculty</h3>
-          <p class="text-sm text-army-600 mt-1">Concept-first teaching with patient, supportive mentors.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/SSB-Training.webp" alt="Free SSB Training" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Free SSB Training</h3>
-          <p class="text-sm text-army-600 mt-1">Screening, Psychology, GTO and Interview — until you are recommended.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/SSB-Pannel.webp" alt="Experienced SSB Panel" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Experienced SSB Panel</h3>
-          <p class="text-sm text-army-600 mt-1">Mentorship from retired SSB board officers with real-board experience.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Doubt-Classes.webp" alt="Doubt Removal Classes" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Doubt Removal Classes</h3>
-          <p class="text-sm text-army-600 mt-1">Dedicated sessions until every concept is crystal clear.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Backlok.webp" alt="Backlog Classes" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Backlog Classes</h3>
-          <p class="text-sm text-army-600 mt-1">Missed a topic? Catch up without falling behind your batch.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Motivational.webp" alt="Motivational Sessions" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Motivational Sessions</h3>
-          <p class="text-sm text-army-600 mt-1">Stay focused with regular pep talks and success stories.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/weekly-mock-test.webp" alt="Weekly Mock Tests" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Weekly Mock Tests</h3>
-          <p class="text-sm text-army-600 mt-1">Exam-pattern practice with detailed performance analysis.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Online-crash-course.webp" alt="Online Crash Course" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Online Crash Course</h3>
-          <p class="text-sm text-army-600 mt-1">Live classes &amp; recorded modules for students across India.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Hostel.webp" alt="Hostel Accommodation" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Hostel Accommodation</h3>
-          <p class="text-sm text-army-600 mt-1">Safe, hygienic and disciplined residential facility for outstation aspirants.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Co-curricular.webp" alt="Co-curricular Activities" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Co-curricular Activities</h3>
-          <p class="text-sm text-army-600 mt-1">Sports, debates and group tasks that build officer-like qualities.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Smart-classroom.webp" alt="Smart Classroom" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Smart Classroom</h3>
-          <p class="text-sm text-army-600 mt-1">Audio-visual learning that makes complex concepts memorable.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Help-Desk.webp" alt="Helping Desk" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Helping Desk</h3>
-          <p class="text-sm text-army-600 mt-1">Always-on support — academic or personal, every query matters.</p>
-        </div>
-      </div>
-      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
-        <img src="images/Career-Counselling.webp" alt="Career Counselling" class="w-full h-44 object-cover" />
-        <div class="p-5">
-          <h3 class="text-lg text-army-800">Career Counselling</h3>
-          <p class="text-sm text-army-600 mt-1">Personal attention for students who need an extra hand to catch up.</p>
+      <div class="faculty-card col-span-2 sm:col-span-1">
+        <img src="images/Aviraj-singh-sir.jpg" alt="Aviraj Singh Sir" class="img-portrait" style="object-position:center;" />
+        <div class="p-3 sm:p-4 text-center">
+          <h3 class="text-sm sm:text-base text-army-800 font-semibold leading-tight">Aviraj Singh Sir</h3>
+          <p class="text-xs text-army-600 mt-1">SSB Mentor (Ex. NDA)</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="results" class="py-16 bg-army-900 text-white">
+<section id="features" class="py-14 sm:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
-      <p class="text-gold-400 font-semibold uppercase tracking-widest text-sm">Parade of Glory</p>
-      <h2 class="text-3xl sm:text-4xl">Our Recent Results — The Gems of Shield</h2>
-      <p class="text-army-100 mt-3 max-w-2xl mx-auto">
-        Every photograph below tells a story of grit, sacrifice and a salute earned. Meet our cadets and Passing Out Parade officers.
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-xs sm:text-sm">Why Choose Shield Defence Academy</p>
+      <h2 class="text-2xl sm:text-4xl text-army-800">Your Success is Our Guarantee</h2>
+      <span class="gold-bar"></span>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Free-Library.webp" alt="Free Library" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Free Library</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">A quiet, focused space for self-study with all the resources you need.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Books-Bags-Notes.webp" alt="Books, Bag and Study Material" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Books &amp; Study Kit</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Complete kit aligned with the latest exam pattern.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/PYQ.webp" alt="PYQ Last 15 Years" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">PYQ — 15 Years</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Previous-year papers for speed, accuracy and pattern mastery.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Experienced-Faculty.webp" alt="Experienced Faculty" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Expert Faculty</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Concept-first teaching with patient, supportive mentors.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/SSB-Training.webp" alt="Free SSB Training" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Free SSB Training</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Screening, Psychology, GTO and Interview — till recommended.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/SSB-Pannel.webp" alt="Experienced SSB Panel" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">SSB Panel</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Retired SSB board officers with real-board experience.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Doubt-Classes.webp" alt="Doubt Removal Classes" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Doubt Classes</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Dedicated sessions until every concept is crystal clear.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Backlok.webp" alt="Backlog Classes" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Backlog Classes</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Missed a topic? Catch up without falling behind.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Motivational.webp" alt="Motivational Sessions" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Motivation Sessions</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Regular pep talks and success stories to keep you focused.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/weekly-mock-test.webp" alt="Weekly Mock Tests" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Weekly Mock Tests</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Exam-pattern practice with detailed performance analysis.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Online-crash-course.webp" alt="Online Crash Course" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Online Crash Course</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Live &amp; recorded modules for students across India.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Hostel.webp" alt="Hostel Accommodation" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Hostel Facility</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Safe, hygienic residential facility for outstation aspirants.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Co-curricular.webp" alt="Co-curricular Activities" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Co-curricular</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Sports, debates and group tasks that build officer-like qualities.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Smart-classroom.webp" alt="Smart Classroom" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Smart Classroom</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Audio-visual learning that makes complex concepts memorable.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Help-Desk.webp" alt="Helping Desk" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Help Desk</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Always-on support — academic or personal, every query matters.</p>
+        </div>
+      </div>
+      <div class="feat-card bg-army-50 rounded-xl overflow-hidden">
+        <img src="images/Career-Counselling.webp" alt="Career Counselling" class="img-feature" />
+        <div class="p-3 sm:p-5">
+          <h3 class="text-sm sm:text-lg text-army-800 font-semibold">Career Counselling</h3>
+          <p class="text-xs sm:text-sm text-army-600 mt-1 hidden sm:block">Personal guidance for every aspirant's unique journey.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results" class="py-14 sm:py-20 bg-army-900 text-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <p class="text-gold-400 font-semibold uppercase tracking-widest text-xs sm:text-sm">Parade of Glory</p>
+      <h2 class="text-2xl sm:text-4xl">Our Results — The Gems of Shield</h2>
+      <span class="gold-bar"></span>
+      <p class="text-army-100 mt-4 max-w-2xl mx-auto text-sm hidden sm:block">
+        Every photograph tells a story of grit, sacrifice and a salute earned. Meet our cadets and Passing Out Parade officers.
       </p>
     </div>
 
-    <h3 class="text-2xl text-gold-400 mb-4">Gems of Shield</h3>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 mb-12">
-      <img src="images/Blog1.webp" alt="Gem of Shield 1" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Blog2.webp" alt="Gem of Shield 2" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Blog3.webp" alt="Gem of Shield 3" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Blog4.webp" alt="Gem of Shield 4" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Blog5.webp" alt="Gem of Shield 5" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Blog6.webp" alt="Gem of Shield 6" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Blog7.webp" alt="Gem of Shield 7" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Blog8.webp" alt="Gem of Shield 8" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Backup_of_Blog9.webp" alt="Gem of Shield 9" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+    <h3 class="text-lg sm:text-2xl text-gold-400 mb-4 font-display">Gems of Shield</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-10 sm:mb-12">
+      <div class="result-item"><img src="images/Blog1.webp" alt="Gem of Shield 1" class="img-result" /></div>
+      <div class="result-item"><img src="images/Blog2.webp" alt="Gem of Shield 2" class="img-result" /></div>
+      <div class="result-item"><img src="images/Blog3.webp" alt="Gem of Shield 3" class="img-result" /></div>
+      <div class="result-item"><img src="images/Blog4.webp" alt="Gem of Shield 4" class="img-result" /></div>
+      <div class="result-item"><img src="images/Blog5.webp" alt="Gem of Shield 5" class="img-result" /></div>
+      <div class="result-item"><img src="images/Blog6.webp" alt="Gem of Shield 6" class="img-result" /></div>
+      <div class="result-item"><img src="images/Blog7.webp" alt="Gem of Shield 7" class="img-result" /></div>
+      <div class="result-item"><img src="images/Blog8.webp" alt="Gem of Shield 8" class="img-result" /></div>
+      <div class="result-item"><img src="images/Backup_of_Blog9.webp" alt="Gem of Shield 9" class="img-result" /></div>
     </div>
 
-    <h3 class="text-2xl text-gold-400 mb-4">Passing Out Parade</h3>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-      <img src="images/Parade11.webp" alt="POP Col Sir" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Ayush.webp" alt="POP Ayush" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Abhay.webp" alt="POP Abhay" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Yash.webp" alt="POP Yash" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Lakshay-webp.webp" alt="POP Lakshay" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade-1.webp" alt="POP Krishna Singh" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade2.webp" alt="POP Vaibhav Raj" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade3.webp" alt="POP Aditya Shukla" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade4.webp" alt="POP Rishabh Singh" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade5.webp" alt="POP Nirbhay Pandey" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade6.webp" alt="POP Siddhant Singh Sengar" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade7.webp" alt="POP Aniket Shukla" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade8.webp" alt="POP Abhishek Singh" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade9.webp" alt="POP Ashutos Raj Patil" class="rounded-lg w-full h-56 object-cover shadow-lg" />
-      <img src="images/Parade10.webp" alt="POP Supriya Tiwari" class="rounded-lg w-full h-56 object-cover shadow-lg" />
+    <h3 class="text-lg sm:text-2xl text-gold-400 mb-4 font-display">Passing Out Parade</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+      <div class="result-item"><img src="images/Parade11.webp" alt="POP Col Sir" class="img-result" /></div>
+      <div class="result-item"><img src="images/Ayush.webp" alt="POP Ayush" class="img-result" /></div>
+      <div class="result-item"><img src="images/Abhay.webp" alt="POP Abhay" class="img-result" /></div>
+      <div class="result-item"><img src="images/Yash.webp" alt="POP Yash" class="img-result" /></div>
+      <div class="result-item"><img src="images/Lakshay-webp.webp" alt="POP Lakshay" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade-1.webp" alt="POP Krishna Singh" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade2.webp" alt="POP Vaibhav Raj" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade3.webp" alt="POP Aditya Shukla" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade4.webp" alt="POP Rishabh Singh" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade5.webp" alt="POP Nirbhay Pandey" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade6.webp" alt="POP Siddhant Singh Sengar" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade7.webp" alt="POP Aniket Shukla" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade8.webp" alt="POP Abhishek Singh" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade9.webp" alt="POP Ashutos Raj Patil" class="img-result" /></div>
+      <div class="result-item"><img src="images/Parade10.webp" alt="POP Supriya Tiwari" class="img-result" /></div>
     </div>
 
     <div class="text-center mt-10">
@@ -616,11 +665,12 @@
   </div>
 </section>
 
-<section class="py-16 bg-white">
+<section class="py-14 sm:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-10">
-      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Student Voices</p>
-      <h2 class="text-3xl sm:text-4xl text-army-800">Testimonials from Recommended Candidates</h2>
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-xs sm:text-sm">Student Voices</p>
+      <h2 class="text-2xl sm:text-4xl text-army-800">Testimonials from Recommended Candidates</h2>
+      <span class="gold-bar"></span>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="aspect-video">
@@ -636,11 +686,12 @@
   </div>
 </section>
 
-<section id="faq" class="py-16 bg-army-50">
+<section id="faq" class="py-14 sm:py-20 bg-army-50">
   <div class="max-w-4xl mx-auto px-4">
     <div class="text-center mb-10">
-      <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm">Frequently Asked Questions</p>
-      <h2 class="text-3xl sm:text-4xl text-army-800">Everything You Want to Know</h2>
+      <p class="text-gold-600 font-semibold uppercase tracking-widest text-xs sm:text-sm">Frequently Asked Questions</p>
+      <h2 class="text-2xl sm:text-4xl text-army-800">Everything You Want to Know</h2>
+      <span class="gold-bar"></span>
     </div>
 
     <div class="space-y-3">
@@ -903,7 +954,7 @@
 </a>
 
 <script>
-  const SDA_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbx79tuPbWaWeSfmVfMfEtC5bOp1emmiHWIPlaqSMw0IoORLuhzhAIu19V1S_jnd-Sii/exec";
+  const SDA_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzWIssFi-hsLwvW5PKZAghUSNUnb9kkNxdU7L8VP_SmFwI8QrEdAQYii1ubmXBMVw7X/exec";
 
   document.querySelectorAll('form.sda-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
