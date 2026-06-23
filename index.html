@@ -3,6 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NNJ2W593');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16696036682"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-16696036682');
+</script>
 <title>Shield Defence Academy — Best NDA Coaching in Lucknow, India</title>
 <meta name="description" content="Shield Defence Academy, Lucknow — Best NDA, CDS, AFCAT, SSB, Sainik School and Best NDA Foundation Coaching in Lucknow. Expert ex-defence officers, hostel facility, weekly mock tests." />
 <link rel="icon" href="images/sda-favicon.png" />
@@ -108,6 +125,11 @@
 </style>
 </head>
 <body class="bg-white">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNJ2W593"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="bg-army-800 text-army-50 text-sm">
   <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
@@ -219,7 +241,10 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-sm font-semibold mb-1">Phone <span class="text-red-500">*</span></label>
-            <input required type="tel" name="phone" placeholder="10-digit mobile" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+            <div class="flex border border-army-200 focus-within:border-gold-500 rounded overflow-hidden">
+              <span class="bg-army-50 px-3 py-2 text-army-700 text-sm font-semibold border-r border-army-200 flex items-center select-none">+91</span>
+              <input required type="tel" name="phone" placeholder="10-digit mobile" maxlength="10" class="flex-1 focus:outline-none px-3 py-2" />
+            </div>
           </div>
           <div>
             <label class="block text-sm font-semibold mb-1">Email <span class="text-red-500">*</span></label>
@@ -772,7 +797,10 @@
             </div>
             <div>
               <label class="block text-sm font-semibold mb-1 text-army-100">Phone <span class="text-red-400">*</span></label>
-              <input required type="tel" name="phone" placeholder="10-digit mobile" class="w-full border border-army-600 bg-army-800 text-army-50 focus:border-gold-500 focus:outline-none rounded px-3 py-2 placeholder-army-400" />
+              <div class="flex border border-army-600 focus-within:border-gold-500 rounded overflow-hidden bg-army-800">
+                <span class="bg-army-700 px-3 py-2 text-army-200 text-sm font-semibold border-r border-army-600 flex items-center select-none">+91</span>
+                <input required type="tel" name="phone" placeholder="10-digit mobile" maxlength="10" class="flex-1 bg-army-800 text-army-50 focus:outline-none px-3 py-2 placeholder-army-400" />
+              </div>
             </div>
           </div>
           <div class="grid sm:grid-cols-2 gap-4">
@@ -914,7 +942,10 @@
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1 text-army-800">Phone <span class="text-red-500">*</span></label>
-        <input required type="tel" name="phone" placeholder="10-digit mobile number" class="w-full border border-army-200 focus:border-gold-500 focus:outline-none rounded px-3 py-2" />
+        <div class="flex border border-army-200 focus-within:border-gold-500 rounded overflow-hidden">
+          <span class="bg-army-50 px-3 py-2 text-army-700 text-sm font-semibold border-r border-army-200 flex items-center select-none">+91</span>
+          <input required type="tel" name="phone" placeholder="10-digit mobile" maxlength="10" class="flex-1 focus:outline-none px-3 py-2" />
+        </div>
       </div>
       <div>
         <label class="block text-sm font-semibold mb-1 text-army-800">Email <span class="text-red-500">*</span></label>
@@ -954,19 +985,50 @@
 </a>
 
 <script>
-  const SDA_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzWIssFi-hsLwvW5PKZAghUSNUnb9kkNxdU7L8VP_SmFwI8QrEdAQYii1ubmXBMVw7X/exec";
+  const SDA_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbx79tuPbWaWeSfmVfMfEtC5bOp1emmiHWIPlaqSMw0IoORLuhzhAIu19V1S_jnd-Sii/exec";
 
   document.querySelectorAll('form.sda-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const data = new FormData(form);
-      data.append('source',    form.dataset.source || 'Website');
-      data.append('timestamp', new Date().toISOString());
-      data.append('page',      window.location.href);
 
-      fetch(SDA_FORM_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).catch(function(){});
+      // Fix phone value to include +91
+      var phoneInput = form.querySelector('input[name="phone"]');
+      if (phoneInput) {
+        phoneInput.value = '+91' + phoneInput.value.replace(/\D/g, '');
+      }
 
-      window.location.href = 'thankyou.html';
+      // Remove any previously added hidden fields then re-add fresh
+      form.querySelectorAll('input._sda_extra').forEach(function(el) { el.remove(); });
+      [
+        ['source',    form.dataset.source || 'Website'],
+        ['timestamp', new Date().toISOString()],
+        ['page',      window.location.href]
+      ].forEach(function(pair) {
+        var inp = document.createElement('input');
+        inp.type = 'hidden'; inp.name = pair[0]; inp.value = pair[1];
+        inp.className = '_sda_extra';
+        form.appendChild(inp);
+      });
+
+      // Submit via hidden iframe — bypasses CORS/redirect issues with Google Apps Script
+      var iframeName = 'sda_iframe_' + Date.now();
+      var iframe = document.createElement('iframe');
+      iframe.name = iframeName;
+      iframe.style.cssText = 'display:none;width:0;height:0;border:0;';
+      document.body.appendChild(iframe);
+
+      form.action  = SDA_FORM_ENDPOINT;
+      form.method  = 'POST';
+      form.target  = iframeName;
+      form.submit();
+
+      setTimeout(function() { window.location.href = 'thankyou.html'; }, 1500);
+    });
+  });
+
+  document.querySelectorAll('input[name="phone"]').forEach(function(input) {
+    input.addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '').slice(0, 10);
     });
   });
 
