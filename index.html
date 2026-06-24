@@ -991,38 +991,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Fix phone value to include +91
-      var phoneInput = form.querySelector('input[name="phone"]');
-      if (phoneInput) {
-        phoneInput.value = '+91' + phoneInput.value.replace(/\D/g, '');
-      }
+      var btn = form.querySelector('button[type="submit"]');
+      var statusEl = form.querySelector('.sda-form-status');
+      if (btn) { btn.disabled = true; }
+      if (statusEl) { statusEl.textContent = 'Sending…'; }
 
-      // Remove any previously added hidden fields then re-add fresh
-      form.querySelectorAll('input._sda_extra').forEach(function(el) { el.remove(); });
-      [
-        ['source',    form.dataset.source || 'Website'],
-        ['timestamp', new Date().toISOString()],
-        ['page',      window.location.href]
-      ].forEach(function(pair) {
-        var inp = document.createElement('input');
-        inp.type = 'hidden'; inp.name = pair[0]; inp.value = pair[1];
-        inp.className = '_sda_extra';
-        form.appendChild(inp);
-      });
+      var params = new URLSearchParams();
+      new FormData(form).forEach(function(val, key) { params.append(key, val); });
 
-      // Submit via hidden iframe — bypasses CORS/redirect issues with Google Apps Script
-      var iframeName = 'sda_iframe_' + Date.now();
-      var iframe = document.createElement('iframe');
-      iframe.name = iframeName;
-      iframe.style.cssText = 'display:none;width:0;height:0;border:0;';
-      document.body.appendChild(iframe);
+      var phone = params.get('phone');
+      if (phone) params.set('phone', '+91' + phone.replace(/\D/g, ''));
 
-      form.action  = SDA_FORM_ENDPOINT;
-      form.method  = 'POST';
-      form.target  = iframeName;
-      form.submit();
+      params.set('source',    form.dataset.source || 'Website');
+      params.set('timestamp', new Date().toISOString());
+      params.set('page',      window.location.href);
 
-      setTimeout(function() { window.location.href = 'thankyou.html'; }, 1500);
+      var redirected = false;
+      var redirect = function() {
+        if (!redirected) { redirected = true; window.location.href = 'thankyou.html'; }
+      };
+
+      fetch(SDA_FORM_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      }).finally(redirect);
+
+      // Fallback redirect in case fetch hangs
+      setTimeout(redirect, 5000);
     });
   });
 
